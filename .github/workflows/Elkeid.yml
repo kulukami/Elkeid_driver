@@ -335,7 +335,7 @@ jobs:
         path: ${{ steps.extract-debian11.outputs.destination }}
         name: elkeid_driver_debian11
 
-  build_debian1204:
+  build_ubuntu1204:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -345,27 +345,27 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
 
-    - name: Build debian1204
+    - name: Build ubuntu1204
       uses: docker/build-push-action@v2
       with:
-        file: dockerfiles/Dockerfile.debian1204
+        file: dockerfiles/Dockerfile.ubuntu1204
         load: true
-        tags: elkeid_driver/debian1204:latest
+        tags: elkeid_driver/ubuntu1204:latest
 
-    - name: Extract debian1204
-      id: extract-debian1204
+    - name: Extract ubuntu1204
+      id: extract-ubuntu1204
       uses: shrink/actions-docker-extract@v1
       with:
-        image: elkeid_driver/debian1204:latest
+        image: elkeid_driver/ubuntu1204:latest
         path: /ko_output/.
 
-    - name: Upload debian1204
+    - name: Upload ubuntu1204
       uses: actions/upload-artifact@v3
       with:
-        path: ${{ steps.extract-debian1204.outputs.destination }}
-        name: elkeid_driver_debian1204
+        path: ${{ steps.extract-ubuntu1204.outputs.destination }}
+        name: elkeid_driver_ubuntu1204
   
-  build_debian1404:
+  build_ubuntu1404:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -375,27 +375,27 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
 
-    - name: Build debian1404
+    - name: Build ubuntu1404
       uses: docker/build-push-action@v2
       with:
-        file: dockerfiles/Dockerfile.debian1404
+        file: dockerfiles/Dockerfile.ubuntu1404
         load: true
-        tags: elkeid_driver/debian1404:latest
+        tags: elkeid_driver/ubuntu1404:latest
 
-    - name: Extract debian1404
-      id: extract-debian1404
+    - name: Extract ubuntu1404
+      id: extract-ubuntu1404
       uses: shrink/actions-docker-extract@v1
       with:
-        image: elkeid_driver/debian1404:latest
+        image: elkeid_driver/ubuntu1404:latest
         path: /ko_output/.
 
-    - name: Upload debian1404
+    - name: Upload ubuntu1404
       uses: actions/upload-artifact@v3
       with:
-        path: ${{ steps.extract-debian1404.outputs.destination }}
-        name: elkeid_driver_debian1404
+        path: ${{ steps.extract-ubuntu1404.outputs.destination }}
+        name: elkeid_driver_ubuntu1404
   
-  build_debian1604:
+  build_ubuntu1604:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -405,27 +405,27 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
 
-    - name: Build debian1604
+    - name: Build ubuntu1604
       uses: docker/build-push-action@v2
       with:
-        file: dockerfiles/Dockerfile.debian1604
+        file: dockerfiles/Dockerfile.ubuntu1604
         load: true
-        tags: elkeid_driver/debian1604:latest
+        tags: elkeid_driver/ubuntu1604:latest
 
-    - name: Extract debian1604
-      id: extract-debian1604
+    - name: Extract ubuntu1604
+      id: extract-ubuntu1604
       uses: shrink/actions-docker-extract@v1
       with:
-        image: elkeid_driver/debian1604:latest
+        image: elkeid_driver/ubuntu1604:latest
         path: /ko_output/.
 
-    - name: Upload debian1604
+    - name: Upload ubuntu1604
       uses: actions/upload-artifact@v3
       with:
-        path: ${{ steps.extract-debian1604.outputs.destination }}
-        name: elkeid_driver_debian1604
+        path: ${{ steps.extract-ubuntu1604.outputs.destination }}
+        name: elkeid_driver_ubuntu1604
   
-  build_debian1804:
+  build_ubuntu1804:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -435,27 +435,27 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
 
-    - name: Build debian1804
+    - name: Build ubuntu1804
       uses: docker/build-push-action@v2
       with:
-        file: dockerfiles/Dockerfile.debian1804
+        file: dockerfiles/Dockerfile.ubuntu1804
         load: true
-        tags: elkeid_driver/debian1804:latest
+        tags: elkeid_driver/ubuntu1804:latest
 
-    - name: Extract debian1804
-      id: extract-debian1804
+    - name: Extract ubuntu1804
+      id: extract-ubuntu1804
       uses: shrink/actions-docker-extract@v1
       with:
-        image: elkeid_driver/debian1804:latest
+        image: elkeid_driver/ubuntu1804:latest
         path: /ko_output/.
 
-    - name: Upload debian1804
+    - name: Upload ubuntu1804
       uses: actions/upload-artifact@v3
       with:
-        path: ${{ steps.extract-debian1804.outputs.destination }}
-        name: elkeid_driver_debian1804
+        path: ${{ steps.extract-ubuntu1804.outputs.destination }}
+        name: elkeid_driver_ubuntu1804
   
-  build_debian2004:
+  build_ubuntu2004:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -465,27 +465,27 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
 
-    - name: Build debian2004
+    - name: Build ubuntu2004
       uses: docker/build-push-action@v2
       with:
-        file: dockerfiles/Dockerfile.debian2004
+        file: dockerfiles/Dockerfile.ubuntu2004
         load: true
-        tags: elkeid_driver/debian2004:latest
+        tags: elkeid_driver/ubuntu2004:latest
 
-    - name: Extract debian2004
-      id: extract-debian2004
+    - name: Extract ubuntu2004
+      id: extract-ubuntu2004
       uses: shrink/actions-docker-extract@v1
       with:
-        image: elkeid_driver/debian2004:latest
+        image: elkeid_driver/ubuntu2004:latest
         path: /ko_output/.
 
-    - name: Upload debian2004
+    - name: Upload ubuntu2004
       uses: actions/upload-artifact@v3
       with:
-        path: ${{ steps.extract-debian2004.outputs.destination }}
-        name: elkeid_driver_debian2004
+        path: ${{ steps.extract-ubuntu2004.outputs.destination }}
+        name: elkeid_driver_ubuntu2004
   
-  build_debian2204:
+  build_ubuntu2204:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -495,25 +495,25 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
 
-    - name: Build debian2204
+    - name: Build ubuntu2204
       uses: docker/build-push-action@v2
       with:
-        file: dockerfiles/Dockerfile.debian2204
+        file: dockerfiles/Dockerfile.ubuntu2204
         load: true
-        tags: elkeid_driver/debian2204:latest
+        tags: elkeid_driver/ubuntu2204:latest
 
-    - name: Extract debian2204
-      id: extract-debian2204
+    - name: Extract ubuntu2204
+      id: extract-ubuntu2204
       uses: shrink/actions-docker-extract@v1
       with:
-        image: elkeid_driver/debian2204:latest
+        image: elkeid_driver/ubuntu2204:latest
         path: /ko_output/.
 
-    - name: Upload debian2204
+    - name: Upload ubuntu2204
       uses: actions/upload-artifact@v3
       with:
-        path: ${{ steps.extract-debian2204.outputs.destination }}
-        name: elkeid_driver_debian2204
+        path: ${{ steps.extract-ubuntu2204.outputs.destination }}
+        name: elkeid_driver_ubuntu2204
   
 
 
