@@ -1,4 +1,4 @@
-FROM cern/cc8-base:latest AS rhel8
+FROM cern/c8-base:latest AS rhel8
 
 RUN yum install -y wget perl gcc make tree elfutils-libelf-devel yumdownloader; 
 RUN yum groupinstall -y  "Development Tools"; 
