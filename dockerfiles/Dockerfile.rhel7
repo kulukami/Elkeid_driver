@@ -1,15 +1,10 @@
-FROM centos:7 AS rhel7
+FROM cern/cc7-base:latest AS rhel7
 
-RUN sed -e "s|^mirrorlist=|#mirrorlist=|g" \
-         -e "s|^#baseurl=http://mirror.centos.org/centos/\$releasever|baseurl=https://mirrors.nju.edu.cn/cc/7.9.2009|g" \
-         -i.bak \
-         /etc/yum.repos.d/CentOS-*.repo
-
-RUN yum install -y wget perl gcc make elfutils-libelf-devel; \
-cd /tmp; \
-wget -q -c -r -np -nd -nH -A 'kernel-devel*x86_64.rpm' 'https://mirrors.nju.edu.cn/cc/7/updates/x86_64/Packages/';
-RUN rpm -ivh /tmp/*.rpm
-RUN yum clean all
+RUN yum install -y wget perl gcc make tree elfutils-libelf-devel yumdownloader; 
+RUN yum groupinstall -y  "Development Tools"; 
+RUN mkdir /root/headers
+RUN for each_tag in `yum --showduplicates list kernel-devel | grep kernel-devel | awk -c '{print $2}'`; do yumdownloader  --destdir /root/headers kernel-devel-$each_tag.x86_64; done
+RUN rpm --force -i /root/headers/*.rpm
 
 ADD . /elkeid_driver
 WORKDIR /elkeid_driver
