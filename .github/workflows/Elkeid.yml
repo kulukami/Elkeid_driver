@@ -7,8 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-
-  build:
+  build_rhel7:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -37,3 +36,33 @@ jobs:
       with:
         path: ${{ steps.extract-rhel7.outputs.destination }}
         name: elkeid_driver_rhel7
+
+  build_rhel8:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+
+    - name: Build rhel8
+      uses: docker/build-push-action@v2
+      with:
+        file: dockerfiles/Dockerfile.rhel8
+        load: true
+        tags: elkeid_driver/rhel8:latest
+
+    - name: Extract rhel8
+      id: extract-rhel8
+      uses: shrink/actions-docker-extract@v1
+      with:
+        image: elkeid_driver/rhel8:latest
+        path: /ko_output/.
+
+    - name: Upload rhel8
+      uses: actions/upload-artifact@v3
+      with:
+        path: ${{ steps.extract-rhel8.outputs.destination }}
+        name: elkeid_driver_rhel8
