@@ -3,31 +3,6 @@ on:
   push:
     branches: [ main ]
 jobs:
-  build_ubuntu2004_azure:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        submodules: recursive
-    - name: Set up Docker Buildx ubuntu2004_azure
-      uses: docker/setup-buildx-action@v1
-    - name: Build ubuntu2004_azure
-      uses: docker/build-push-action@v2
-      with:
-        file: dockerfiles/Dockerfile.ubuntu2004_azure
-        load: true
-        tags: elkeid_driver/ubuntu2004_azure:latest
-    - name: Extract ubuntu2004_azure
-      id: extract-ubuntu2004_azure
-      uses: shrink/actions-docker-extract@v1
-      with:
-        image: elkeid_driver/ubuntu2004_azure:latest
-        path: / ko_output/.
-    - name: Upload ubuntu2004_azure
-      uses: actions/upload-artifact@v3
-      with:
-        name: elkeid_driver_ubuntu2004_azure
-        path: ${{steps.extract-ubuntu2004_azure.outputs.destination}}
   build_amazonlinux:
     runs-on: ubuntu-latest
     steps:
@@ -47,162 +22,12 @@ jobs:
       uses: shrink/actions-docker-extract@v1
       with:
         image: elkeid_driver/amazonlinux:latest
-        path: / ko_output/.
+        path: ./ko_output/.
     - name: Upload amazonlinux
       uses: actions/upload-artifact@v3
       with:
         name: elkeid_driver_amazonlinux
         path: ${{steps.extract-amazonlinux.outputs.destination}}
-  build_ubuntu1204:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        submodules: recursive
-    - name: Set up Docker Buildx ubuntu1204
-      uses: docker/setup-buildx-action@v1
-    - name: Build ubuntu1204
-      uses: docker/build-push-action@v2
-      with:
-        file: dockerfiles/Dockerfile.ubuntu1204
-        load: true
-        tags: elkeid_driver/ubuntu1204:latest
-    - name: Extract ubuntu1204
-      id: extract-ubuntu1204
-      uses: shrink/actions-docker-extract@v1
-      with:
-        image: elkeid_driver/ubuntu1204:latest
-        path: / ko_output/.
-    - name: Upload ubuntu1204
-      uses: actions/upload-artifact@v3
-      with:
-        name: elkeid_driver_ubuntu1204
-        path: ${{steps.extract-ubuntu1204.outputs.destination}}
-  build_ubuntu1804:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        submodules: recursive
-    - name: Set up Docker Buildx ubuntu1804
-      uses: docker/setup-buildx-action@v1
-    - name: Build ubuntu1804
-      uses: docker/build-push-action@v2
-      with:
-        file: dockerfiles/Dockerfile.ubuntu1804
-        load: true
-        tags: elkeid_driver/ubuntu1804:latest
-    - name: Extract ubuntu1804
-      id: extract-ubuntu1804
-      uses: shrink/actions-docker-extract@v1
-      with:
-        image: elkeid_driver/ubuntu1804:latest
-        path: / ko_output/.
-    - name: Upload ubuntu1804
-      uses: actions/upload-artifact@v3
-      with:
-        name: elkeid_driver_ubuntu1804
-        path: ${{steps.extract-ubuntu1804.outputs.destination}}
-  build_ubuntu1604:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        submodules: recursive
-    - name: Set up Docker Buildx ubuntu1604
-      uses: docker/setup-buildx-action@v1
-    - name: Build ubuntu1604
-      uses: docker/build-push-action@v2
-      with:
-        file: dockerfiles/Dockerfile.ubuntu1604
-        load: true
-        tags: elkeid_driver/ubuntu1604:latest
-    - name: Extract ubuntu1604
-      id: extract-ubuntu1604
-      uses: shrink/actions-docker-extract@v1
-      with:
-        image: elkeid_driver/ubuntu1604:latest
-        path: / ko_output/.
-    - name: Upload ubuntu1604
-      uses: actions/upload-artifact@v3
-      with:
-        name: elkeid_driver_ubuntu1604
-        path: ${{steps.extract-ubuntu1604.outputs.destination}}
-  build_ubuntu1404_aws:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        submodules: recursive
-    - name: Set up Docker Buildx ubuntu1404_aws
-      uses: docker/setup-buildx-action@v1
-    - name: Build ubuntu1404_aws
-      uses: docker/build-push-action@v2
-      with:
-        file: dockerfiles/Dockerfile.ubuntu1404_aws
-        load: true
-        tags: elkeid_driver/ubuntu1404_aws:latest
-    - name: Extract ubuntu1404_aws
-      id: extract-ubuntu1404_aws
-      uses: shrink/actions-docker-extract@v1
-      with:
-        image: elkeid_driver/ubuntu1404_aws:latest
-        path: / ko_output/.
-    - name: Upload ubuntu1404_aws
-      uses: actions/upload-artifact@v3
-      with:
-        name: elkeid_driver_ubuntu1404_aws
-        path: ${{steps.extract-ubuntu1404_aws.outputs.destination}}
-  build_ubuntu2004:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        submodules: recursive
-    - name: Set up Docker Buildx ubuntu2004
-      uses: docker/setup-buildx-action@v1
-    - name: Build ubuntu2004
-      uses: docker/build-push-action@v2
-      with:
-        file: dockerfiles/Dockerfile.ubuntu2004
-        load: true
-        tags: elkeid_driver/ubuntu2004:latest
-    - name: Extract ubuntu2004
-      id: extract-ubuntu2004
-      uses: shrink/actions-docker-extract@v1
-      with:
-        image: elkeid_driver/ubuntu2004:latest
-        path: / ko_output/.
-    - name: Upload ubuntu2004
-      uses: actions/upload-artifact@v3
-      with:
-        name: elkeid_driver_ubuntu2004
-        path: ${{steps.extract-ubuntu2004.outputs.destination}}
-  build_ubuntu1604_aws:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        submodules: recursive
-    - name: Set up Docker Buildx ubuntu1604_aws
-      uses: docker/setup-buildx-action@v1
-    - name: Build ubuntu1604_aws
-      uses: docker/build-push-action@v2
-      with:
-        file: dockerfiles/Dockerfile.ubuntu1604_aws
-        load: true
-        tags: elkeid_driver/ubuntu1604_aws:latest
-    - name: Extract ubuntu1604_aws
-      id: extract-ubuntu1604_aws
-      uses: shrink/actions-docker-extract@v1
-      with:
-        image: elkeid_driver/ubuntu1604_aws:latest
-        path: / ko_output/.
-    - name: Upload ubuntu1604_aws
-      uses: actions/upload-artifact@v3
-      with:
-        name: elkeid_driver_ubuntu1604_aws
-        path: ${{steps.extract-ubuntu1604_aws.outputs.destination}}
   build_amazonlinux510:
     runs-on: ubuntu-latest
     steps:
@@ -222,37 +47,62 @@ jobs:
       uses: shrink/actions-docker-extract@v1
       with:
         image: elkeid_driver/amazonlinux510:latest
-        path: / ko_output/.
+        path: ./ko_output/.
     - name: Upload amazonlinux510
       uses: actions/upload-artifact@v3
       with:
         name: elkeid_driver_amazonlinux510
         path: ${{steps.extract-amazonlinux510.outputs.destination}}
-  build_ubuntu1404_azure:
+  build_amazonlinux54:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
       with:
         submodules: recursive
-    - name: Set up Docker Buildx ubuntu1404_azure
+    - name: Set up Docker Buildx amazonlinux54
       uses: docker/setup-buildx-action@v1
-    - name: Build ubuntu1404_azure
+    - name: Build amazonlinux54
       uses: docker/build-push-action@v2
       with:
-        file: dockerfiles/Dockerfile.ubuntu1404_azure
+        file: dockerfiles/Dockerfile.amazonlinux54
         load: true
-        tags: elkeid_driver/ubuntu1404_azure:latest
-    - name: Extract ubuntu1404_azure
-      id: extract-ubuntu1404_azure
+        tags: elkeid_driver/amazonlinux54:latest
+    - name: Extract amazonlinux54
+      id: extract-amazonlinux54
       uses: shrink/actions-docker-extract@v1
       with:
-        image: elkeid_driver/ubuntu1404_azure:latest
-        path: / ko_output/.
-    - name: Upload ubuntu1404_azure
+        image: elkeid_driver/amazonlinux54:latest
+        path: ./ko_output/.
+    - name: Upload amazonlinux54
       uses: actions/upload-artifact@v3
       with:
-        name: elkeid_driver_ubuntu1404_azure
-        path: ${{steps.extract-ubuntu1404_azure.outputs.destination}}
+        name: elkeid_driver_amazonlinux54
+        path: ${{steps.extract-amazonlinux54.outputs.destination}}
+  build_debian10:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: Set up Docker Buildx debian10
+      uses: docker/setup-buildx-action@v1
+    - name: Build debian10
+      uses: docker/build-push-action@v2
+      with:
+        file: dockerfiles/Dockerfile.debian10
+        load: true
+        tags: elkeid_driver/debian10:latest
+    - name: Extract debian10
+      id: extract-debian10
+      uses: shrink/actions-docker-extract@v1
+      with:
+        image: elkeid_driver/debian10:latest
+        path: ./ko_output/.
+    - name: Upload debian10
+      uses: actions/upload-artifact@v3
+      with:
+        name: elkeid_driver_debian10
+        path: ${{steps.extract-debian10.outputs.destination}}
   build_debian11:
     runs-on: ubuntu-latest
     steps:
@@ -272,7 +122,7 @@ jobs:
       uses: shrink/actions-docker-extract@v1
       with:
         image: elkeid_driver/debian11:latest
-        path: / ko_output/.
+        path: ./ko_output/.
     - name: Upload debian11
       uses: actions/upload-artifact@v3
       with:
@@ -297,62 +147,12 @@ jobs:
       uses: shrink/actions-docker-extract@v1
       with:
         image: elkeid_driver/debian8:latest
-        path: / ko_output/.
+        path: ./ko_output/.
     - name: Upload debian8
       uses: actions/upload-artifact@v3
       with:
         name: elkeid_driver_debian8
         path: ${{steps.extract-debian8.outputs.destination}}
-  build_ubuntu1804_azure:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        submodules: recursive
-    - name: Set up Docker Buildx ubuntu1804_azure
-      uses: docker/setup-buildx-action@v1
-    - name: Build ubuntu1804_azure
-      uses: docker/build-push-action@v2
-      with:
-        file: dockerfiles/Dockerfile.ubuntu1804_azure
-        load: true
-        tags: elkeid_driver/ubuntu1804_azure:latest
-    - name: Extract ubuntu1804_azure
-      id: extract-ubuntu1804_azure
-      uses: shrink/actions-docker-extract@v1
-      with:
-        image: elkeid_driver/ubuntu1804_azure:latest
-        path: / ko_output/.
-    - name: Upload ubuntu1804_azure
-      uses: actions/upload-artifact@v3
-      with:
-        name: elkeid_driver_ubuntu1804_azure
-        path: ${{steps.extract-ubuntu1804_azure.outputs.destination}}
-  build_debian10:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        submodules: recursive
-    - name: Set up Docker Buildx debian10
-      uses: docker/setup-buildx-action@v1
-    - name: Build debian10
-      uses: docker/build-push-action@v2
-      with:
-        file: dockerfiles/Dockerfile.debian10
-        load: true
-        tags: elkeid_driver/debian10:latest
-    - name: Extract debian10
-      id: extract-debian10
-      uses: shrink/actions-docker-extract@v1
-      with:
-        image: elkeid_driver/debian10:latest
-        path: / ko_output/.
-    - name: Upload debian10
-      uses: actions/upload-artifact@v3
-      with:
-        name: elkeid_driver_debian10
-        path: ${{steps.extract-debian10.outputs.destination}}
   build_debian9:
     runs-on: ubuntu-latest
     steps:
@@ -372,162 +172,12 @@ jobs:
       uses: shrink/actions-docker-extract@v1
       with:
         image: elkeid_driver/debian9:latest
-        path: / ko_output/.
+        path: ./ko_output/.
     - name: Upload debian9
       uses: actions/upload-artifact@v3
       with:
         name: elkeid_driver_debian9
         path: ${{steps.extract-debian9.outputs.destination}}
-  build_ubuntu1604_auzre:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        submodules: recursive
-    - name: Set up Docker Buildx ubuntu1604_auzre
-      uses: docker/setup-buildx-action@v1
-    - name: Build ubuntu1604_auzre
-      uses: docker/build-push-action@v2
-      with:
-        file: dockerfiles/Dockerfile.ubuntu1604_auzre
-        load: true
-        tags: elkeid_driver/ubuntu1604_auzre:latest
-    - name: Extract ubuntu1604_auzre
-      id: extract-ubuntu1604_auzre
-      uses: shrink/actions-docker-extract@v1
-      with:
-        image: elkeid_driver/ubuntu1604_auzre:latest
-        path: / ko_output/.
-    - name: Upload ubuntu1604_auzre
-      uses: actions/upload-artifact@v3
-      with:
-        name: elkeid_driver_ubuntu1604_auzre
-        path: ${{steps.extract-ubuntu1604_auzre.outputs.destination}}
-  build_amazonlinux54:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        submodules: recursive
-    - name: Set up Docker Buildx amazonlinux54
-      uses: docker/setup-buildx-action@v1
-    - name: Build amazonlinux54
-      uses: docker/build-push-action@v2
-      with:
-        file: dockerfiles/Dockerfile.amazonlinux54
-        load: true
-        tags: elkeid_driver/amazonlinux54:latest
-    - name: Extract amazonlinux54
-      id: extract-amazonlinux54
-      uses: shrink/actions-docker-extract@v1
-      with:
-        image: elkeid_driver/amazonlinux54:latest
-        path: / ko_output/.
-    - name: Upload amazonlinux54
-      uses: actions/upload-artifact@v3
-      with:
-        name: elkeid_driver_amazonlinux54
-        path: ${{steps.extract-amazonlinux54.outputs.destination}}
-  build_ubuntu1404:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        submodules: recursive
-    - name: Set up Docker Buildx ubuntu1404
-      uses: docker/setup-buildx-action@v1
-    - name: Build ubuntu1404
-      uses: docker/build-push-action@v2
-      with:
-        file: dockerfiles/Dockerfile.ubuntu1404
-        load: true
-        tags: elkeid_driver/ubuntu1404:latest
-    - name: Extract ubuntu1404
-      id: extract-ubuntu1404
-      uses: shrink/actions-docker-extract@v1
-      with:
-        image: elkeid_driver/ubuntu1404:latest
-        path: / ko_output/.
-    - name: Upload ubuntu1404
-      uses: actions/upload-artifact@v3
-      with:
-        name: elkeid_driver_ubuntu1404
-        path: ${{steps.extract-ubuntu1404.outputs.destination}}
-  build_ubuntu1804_aws:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        submodules: recursive
-    - name: Set up Docker Buildx ubuntu1804_aws
-      uses: docker/setup-buildx-action@v1
-    - name: Build ubuntu1804_aws
-      uses: docker/build-push-action@v2
-      with:
-        file: dockerfiles/Dockerfile.ubuntu1804_aws
-        load: true
-        tags: elkeid_driver/ubuntu1804_aws:latest
-    - name: Extract ubuntu1804_aws
-      id: extract-ubuntu1804_aws
-      uses: shrink/actions-docker-extract@v1
-      with:
-        image: elkeid_driver/ubuntu1804_aws:latest
-        path: / ko_output/.
-    - name: Upload ubuntu1804_aws
-      uses: actions/upload-artifact@v3
-      with:
-        name: elkeid_driver_ubuntu1804_aws
-        path: ${{steps.extract-ubuntu1804_aws.outputs.destination}}
-  build_ubuntu2204:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        submodules: recursive
-    - name: Set up Docker Buildx ubuntu2204
-      uses: docker/setup-buildx-action@v1
-    - name: Build ubuntu2204
-      uses: docker/build-push-action@v2
-      with:
-        file: dockerfiles/Dockerfile.ubuntu2204
-        load: true
-        tags: elkeid_driver/ubuntu2204:latest
-    - name: Extract ubuntu2204
-      id: extract-ubuntu2204
-      uses: shrink/actions-docker-extract@v1
-      with:
-        image: elkeid_driver/ubuntu2204:latest
-        path: / ko_output/.
-    - name: Upload ubuntu2204
-      uses: actions/upload-artifact@v3
-      with:
-        name: elkeid_driver_ubuntu2204
-        path: ${{steps.extract-ubuntu2204.outputs.destination}}
-  build_ubuntu2004_aws:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        submodules: recursive
-    - name: Set up Docker Buildx ubuntu2004_aws
-      uses: docker/setup-buildx-action@v1
-    - name: Build ubuntu2004_aws
-      uses: docker/build-push-action@v2
-      with:
-        file: dockerfiles/Dockerfile.ubuntu2004_aws
-        load: true
-        tags: elkeid_driver/ubuntu2004_aws:latest
-    - name: Extract ubuntu2004_aws
-      id: extract-ubuntu2004_aws
-      uses: shrink/actions-docker-extract@v1
-      with:
-        image: elkeid_driver/ubuntu2004_aws:latest
-        path: / ko_output/.
-    - name: Upload ubuntu2004_aws
-      uses: actions/upload-artifact@v3
-      with:
-        name: elkeid_driver_ubuntu2004_aws
-        path: ${{steps.extract-ubuntu2004_aws.outputs.destination}}
   build_rhel7:
     runs-on: ubuntu-latest
     steps:
@@ -547,7 +197,7 @@ jobs:
       uses: shrink/actions-docker-extract@v1
       with:
         image: elkeid_driver/rhel7:latest
-        path: / ko_output/.
+        path: ./ko_output/.
     - name: Upload rhel7
       uses: actions/upload-artifact@v3
       with:
@@ -572,9 +222,359 @@ jobs:
       uses: shrink/actions-docker-extract@v1
       with:
         image: elkeid_driver/rhel8:latest
-        path: / ko_output/.
+        path: ./ko_output/.
     - name: Upload rhel8
       uses: actions/upload-artifact@v3
       with:
         name: elkeid_driver_rhel8
         path: ${{steps.extract-rhel8.outputs.destination}}
+  build_ubuntu1204:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: Set up Docker Buildx ubuntu1204
+      uses: docker/setup-buildx-action@v1
+    - name: Build ubuntu1204
+      uses: docker/build-push-action@v2
+      with:
+        file: dockerfiles/Dockerfile.ubuntu1204
+        load: true
+        tags: elkeid_driver/ubuntu1204:latest
+    - name: Extract ubuntu1204
+      id: extract-ubuntu1204
+      uses: shrink/actions-docker-extract@v1
+      with:
+        image: elkeid_driver/ubuntu1204:latest
+        path: ./ko_output/.
+    - name: Upload ubuntu1204
+      uses: actions/upload-artifact@v3
+      with:
+        name: elkeid_driver_ubuntu1204
+        path: ${{steps.extract-ubuntu1204.outputs.destination}}
+  build_ubuntu1404:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: Set up Docker Buildx ubuntu1404
+      uses: docker/setup-buildx-action@v1
+    - name: Build ubuntu1404
+      uses: docker/build-push-action@v2
+      with:
+        file: dockerfiles/Dockerfile.ubuntu1404
+        load: true
+        tags: elkeid_driver/ubuntu1404:latest
+    - name: Extract ubuntu1404
+      id: extract-ubuntu1404
+      uses: shrink/actions-docker-extract@v1
+      with:
+        image: elkeid_driver/ubuntu1404:latest
+        path: ./ko_output/.
+    - name: Upload ubuntu1404
+      uses: actions/upload-artifact@v3
+      with:
+        name: elkeid_driver_ubuntu1404
+        path: ${{steps.extract-ubuntu1404.outputs.destination}}
+  build_ubuntu1404_aws:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: Set up Docker Buildx ubuntu1404_aws
+      uses: docker/setup-buildx-action@v1
+    - name: Build ubuntu1404_aws
+      uses: docker/build-push-action@v2
+      with:
+        file: dockerfiles/Dockerfile.ubuntu1404_aws
+        load: true
+        tags: elkeid_driver/ubuntu1404_aws:latest
+    - name: Extract ubuntu1404_aws
+      id: extract-ubuntu1404_aws
+      uses: shrink/actions-docker-extract@v1
+      with:
+        image: elkeid_driver/ubuntu1404_aws:latest
+        path: ./ko_output/.
+    - name: Upload ubuntu1404_aws
+      uses: actions/upload-artifact@v3
+      with:
+        name: elkeid_driver_ubuntu1404_aws
+        path: ${{steps.extract-ubuntu1404_aws.outputs.destination}}
+  build_ubuntu1404_azure:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: Set up Docker Buildx ubuntu1404_azure
+      uses: docker/setup-buildx-action@v1
+    - name: Build ubuntu1404_azure
+      uses: docker/build-push-action@v2
+      with:
+        file: dockerfiles/Dockerfile.ubuntu1404_azure
+        load: true
+        tags: elkeid_driver/ubuntu1404_azure:latest
+    - name: Extract ubuntu1404_azure
+      id: extract-ubuntu1404_azure
+      uses: shrink/actions-docker-extract@v1
+      with:
+        image: elkeid_driver/ubuntu1404_azure:latest
+        path: ./ko_output/.
+    - name: Upload ubuntu1404_azure
+      uses: actions/upload-artifact@v3
+      with:
+        name: elkeid_driver_ubuntu1404_azure
+        path: ${{steps.extract-ubuntu1404_azure.outputs.destination}}
+  build_ubuntu1604:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: Set up Docker Buildx ubuntu1604
+      uses: docker/setup-buildx-action@v1
+    - name: Build ubuntu1604
+      uses: docker/build-push-action@v2
+      with:
+        file: dockerfiles/Dockerfile.ubuntu1604
+        load: true
+        tags: elkeid_driver/ubuntu1604:latest
+    - name: Extract ubuntu1604
+      id: extract-ubuntu1604
+      uses: shrink/actions-docker-extract@v1
+      with:
+        image: elkeid_driver/ubuntu1604:latest
+        path: ./ko_output/.
+    - name: Upload ubuntu1604
+      uses: actions/upload-artifact@v3
+      with:
+        name: elkeid_driver_ubuntu1604
+        path: ${{steps.extract-ubuntu1604.outputs.destination}}
+  build_ubuntu1604_auzre:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: Set up Docker Buildx ubuntu1604_auzre
+      uses: docker/setup-buildx-action@v1
+    - name: Build ubuntu1604_auzre
+      uses: docker/build-push-action@v2
+      with:
+        file: dockerfiles/Dockerfile.ubuntu1604_auzre
+        load: true
+        tags: elkeid_driver/ubuntu1604_auzre:latest
+    - name: Extract ubuntu1604_auzre
+      id: extract-ubuntu1604_auzre
+      uses: shrink/actions-docker-extract@v1
+      with:
+        image: elkeid_driver/ubuntu1604_auzre:latest
+        path: ./ko_output/.
+    - name: Upload ubuntu1604_auzre
+      uses: actions/upload-artifact@v3
+      with:
+        name: elkeid_driver_ubuntu1604_auzre
+        path: ${{steps.extract-ubuntu1604_auzre.outputs.destination}}
+  build_ubuntu1604_aws:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: Set up Docker Buildx ubuntu1604_aws
+      uses: docker/setup-buildx-action@v1
+    - name: Build ubuntu1604_aws
+      uses: docker/build-push-action@v2
+      with:
+        file: dockerfiles/Dockerfile.ubuntu1604_aws
+        load: true
+        tags: elkeid_driver/ubuntu1604_aws:latest
+    - name: Extract ubuntu1604_aws
+      id: extract-ubuntu1604_aws
+      uses: shrink/actions-docker-extract@v1
+      with:
+        image: elkeid_driver/ubuntu1604_aws:latest
+        path: ./ko_output/.
+    - name: Upload ubuntu1604_aws
+      uses: actions/upload-artifact@v3
+      with:
+        name: elkeid_driver_ubuntu1604_aws
+        path: ${{steps.extract-ubuntu1604_aws.outputs.destination}}
+  build_ubuntu1804:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: Set up Docker Buildx ubuntu1804
+      uses: docker/setup-buildx-action@v1
+    - name: Build ubuntu1804
+      uses: docker/build-push-action@v2
+      with:
+        file: dockerfiles/Dockerfile.ubuntu1804
+        load: true
+        tags: elkeid_driver/ubuntu1804:latest
+    - name: Extract ubuntu1804
+      id: extract-ubuntu1804
+      uses: shrink/actions-docker-extract@v1
+      with:
+        image: elkeid_driver/ubuntu1804:latest
+        path: ./ko_output/.
+    - name: Upload ubuntu1804
+      uses: actions/upload-artifact@v3
+      with:
+        name: elkeid_driver_ubuntu1804
+        path: ${{steps.extract-ubuntu1804.outputs.destination}}
+  build_ubuntu1804_aws:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: Set up Docker Buildx ubuntu1804_aws
+      uses: docker/setup-buildx-action@v1
+    - name: Build ubuntu1804_aws
+      uses: docker/build-push-action@v2
+      with:
+        file: dockerfiles/Dockerfile.ubuntu1804_aws
+        load: true
+        tags: elkeid_driver/ubuntu1804_aws:latest
+    - name: Extract ubuntu1804_aws
+      id: extract-ubuntu1804_aws
+      uses: shrink/actions-docker-extract@v1
+      with:
+        image: elkeid_driver/ubuntu1804_aws:latest
+        path: ./ko_output/.
+    - name: Upload ubuntu1804_aws
+      uses: actions/upload-artifact@v3
+      with:
+        name: elkeid_driver_ubuntu1804_aws
+        path: ${{steps.extract-ubuntu1804_aws.outputs.destination}}
+  build_ubuntu1804_azure:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: Set up Docker Buildx ubuntu1804_azure
+      uses: docker/setup-buildx-action@v1
+    - name: Build ubuntu1804_azure
+      uses: docker/build-push-action@v2
+      with:
+        file: dockerfiles/Dockerfile.ubuntu1804_azure
+        load: true
+        tags: elkeid_driver/ubuntu1804_azure:latest
+    - name: Extract ubuntu1804_azure
+      id: extract-ubuntu1804_azure
+      uses: shrink/actions-docker-extract@v1
+      with:
+        image: elkeid_driver/ubuntu1804_azure:latest
+        path: ./ko_output/.
+    - name: Upload ubuntu1804_azure
+      uses: actions/upload-artifact@v3
+      with:
+        name: elkeid_driver_ubuntu1804_azure
+        path: ${{steps.extract-ubuntu1804_azure.outputs.destination}}
+  build_ubuntu2004:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: Set up Docker Buildx ubuntu2004
+      uses: docker/setup-buildx-action@v1
+    - name: Build ubuntu2004
+      uses: docker/build-push-action@v2
+      with:
+        file: dockerfiles/Dockerfile.ubuntu2004
+        load: true
+        tags: elkeid_driver/ubuntu2004:latest
+    - name: Extract ubuntu2004
+      id: extract-ubuntu2004
+      uses: shrink/actions-docker-extract@v1
+      with:
+        image: elkeid_driver/ubuntu2004:latest
+        path: ./ko_output/.
+    - name: Upload ubuntu2004
+      uses: actions/upload-artifact@v3
+      with:
+        name: elkeid_driver_ubuntu2004
+        path: ${{steps.extract-ubuntu2004.outputs.destination}}
+  build_ubuntu2004_aws:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: Set up Docker Buildx ubuntu2004_aws
+      uses: docker/setup-buildx-action@v1
+    - name: Build ubuntu2004_aws
+      uses: docker/build-push-action@v2
+      with:
+        file: dockerfiles/Dockerfile.ubuntu2004_aws
+        load: true
+        tags: elkeid_driver/ubuntu2004_aws:latest
+    - name: Extract ubuntu2004_aws
+      id: extract-ubuntu2004_aws
+      uses: shrink/actions-docker-extract@v1
+      with:
+        image: elkeid_driver/ubuntu2004_aws:latest
+        path: ./ko_output/.
+    - name: Upload ubuntu2004_aws
+      uses: actions/upload-artifact@v3
+      with:
+        name: elkeid_driver_ubuntu2004_aws
+        path: ${{steps.extract-ubuntu2004_aws.outputs.destination}}
+  build_ubuntu2004_azure:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: Set up Docker Buildx ubuntu2004_azure
+      uses: docker/setup-buildx-action@v1
+    - name: Build ubuntu2004_azure
+      uses: docker/build-push-action@v2
+      with:
+        file: dockerfiles/Dockerfile.ubuntu2004_azure
+        load: true
+        tags: elkeid_driver/ubuntu2004_azure:latest
+    - name: Extract ubuntu2004_azure
+      id: extract-ubuntu2004_azure
+      uses: shrink/actions-docker-extract@v1
+      with:
+        image: elkeid_driver/ubuntu2004_azure:latest
+        path: ./ko_output/.
+    - name: Upload ubuntu2004_azure
+      uses: actions/upload-artifact@v3
+      with:
+        name: elkeid_driver_ubuntu2004_azure
+        path: ${{steps.extract-ubuntu2004_azure.outputs.destination}}
+  build_ubuntu2204:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: Set up Docker Buildx ubuntu2204
+      uses: docker/setup-buildx-action@v1
+    - name: Build ubuntu2204
+      uses: docker/build-push-action@v2
+      with:
+        file: dockerfiles/Dockerfile.ubuntu2204
+        load: true
+        tags: elkeid_driver/ubuntu2204:latest
+    - name: Extract ubuntu2204
+      id: extract-ubuntu2204
+      uses: shrink/actions-docker-extract@v1
+      with:
+        image: elkeid_driver/ubuntu2204:latest
+        path: ./ko_output/.
+    - name: Upload ubuntu2204
+      uses: actions/upload-artifact@v3
+      with:
+        name: elkeid_driver_ubuntu2204
+        path: ${{steps.extract-ubuntu2204.outputs.destination}}
