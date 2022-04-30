@@ -77,6 +77,8 @@ yaml_cfg = OrderedDict(
 
 total_jobs = OrderedDict({})
 
+all_vms.sort()
+
 for each in all_vms:
     if each not in black_list:
         tmp_job = gen_job(each)
