@@ -25,7 +25,7 @@ def gen_job(vmname):
                     }
                 }),
                 OrderedDict({
-                    "name": "Set up Docker Buildx"+vmname,
+                    "name": "Set up Docker Buildx "+vmname,
                     "uses": "docker/setup-buildx-action@v1"
                 }),
                 OrderedDict({
@@ -62,7 +62,7 @@ def gen_job(vmname):
 
 
 for each_dockers in all_dockers:
-    all_vms.append(each_dockers.lstrip("Dockerfile."))
+    all_vms.append(each_dockers.replace("Dockerfile.", ""))
 
 yaml_cfg = OrderedDict(
     {
