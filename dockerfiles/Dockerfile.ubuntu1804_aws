@@ -7,7 +7,7 @@ deb http://security.ubuntu.com/ubuntu bionic-security main\n\
 
 RUN apt update;
 RUN apt install -y gcc build-essential dkms;
-RUN apt-get -y install linux-headers*generic || true
+RUN apt-get -y install linux-headers*aws || true
 RUN apt clean all
 
 ADD . /elkeid_driver

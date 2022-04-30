@@ -1,8 +1,8 @@
-FROM ubuntu:xenial AS xenial
+FROM ubuntu:focal AS focal
 
 RUN apt update;
 RUN apt install -y wget curl tree git gcc build-essential kbuild libelf-dev;
-RUN apt-get -y install linux-headers*generic
+RUN apt-get -y install linux-azure-headers* || true
 RUN apt clean all
 
 ADD . /elkeid_driver
