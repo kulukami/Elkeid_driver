@@ -13,3 +13,5 @@ RUN apt clean all
 ADD . /elkeid_driver
 WORKDIR /elkeid_driver
 RUN bash ./batch_compile.sh
+
+RUN apt-get -y remove linux-headers*aws || true
