@@ -20,7 +20,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         file: dockerfiles/Dockerfile.aliyun_linux2
-        load: true
         push: true
         tags: kulukami/elkeid_driver_aliyun_linux2:latest
     - name: Extract aliyun_linux2
@@ -51,7 +50,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         file: dockerfiles/Dockerfile.aliyun_linux3
-        load: true
         push: true
         tags: kulukami/elkeid_driver_aliyun_linux3:latest
     - name: Extract aliyun_linux3
@@ -82,7 +80,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         file: dockerfiles/Dockerfile.amazonlinux
-        load: true
         push: true
         tags: kulukami/elkeid_driver_amazonlinux:latest
     - name: Extract amazonlinux
@@ -113,7 +110,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         file: dockerfiles/Dockerfile.amazonlinux510
-        load: true
         push: true
         tags: kulukami/elkeid_driver_amazonlinux510:latest
     - name: Extract amazonlinux510
@@ -144,7 +140,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         file: dockerfiles/Dockerfile.amazonlinux54
-        load: true
         push: true
         tags: kulukami/elkeid_driver_amazonlinux54:latest
     - name: Extract amazonlinux54
@@ -175,7 +170,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         file: dockerfiles/Dockerfile.debian10
-        load: true
         push: true
         tags: kulukami/elkeid_driver_debian10:latest
     - name: Extract debian10
@@ -206,7 +200,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         file: dockerfiles/Dockerfile.debian11
-        load: true
         push: true
         tags: kulukami/elkeid_driver_debian11:latest
     - name: Extract debian11
@@ -237,7 +230,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         file: dockerfiles/Dockerfile.debian8
-        load: true
         push: true
         tags: kulukami/elkeid_driver_debian8:latest
     - name: Extract debian8
@@ -268,7 +260,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         file: dockerfiles/Dockerfile.debian9
-        load: true
         push: true
         tags: kulukami/elkeid_driver_debian9:latest
     - name: Extract debian9
@@ -299,7 +290,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         file: dockerfiles/Dockerfile.rhel7
-        load: true
         push: true
         tags: kulukami/elkeid_driver_rhel7:latest
     - name: Extract rhel7
@@ -330,7 +320,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         file: dockerfiles/Dockerfile.rhel8
-        load: true
         push: true
         tags: kulukami/elkeid_driver_rhel8:latest
     - name: Extract rhel8
@@ -361,7 +350,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         file: dockerfiles/Dockerfile.ubuntu1204
-        load: true
         push: true
         tags: kulukami/elkeid_driver_ubuntu1204:latest
     - name: Extract ubuntu1204
@@ -392,7 +380,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         file: dockerfiles/Dockerfile.ubuntu1404_k3
-        load: true
         push: true
         tags: kulukami/elkeid_driver_ubuntu1404_k3:latest
     - name: Extract ubuntu1404_k3
@@ -423,7 +410,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         file: dockerfiles/Dockerfile.ubuntu1404_k4
-        load: true
         push: true
         tags: kulukami/elkeid_driver_ubuntu1404_k4:latest
     - name: Extract ubuntu1404_k4
@@ -454,7 +440,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         file: dockerfiles/Dockerfile.ubuntu1604
-        load: true
         push: true
         tags: kulukami/elkeid_driver_ubuntu1604:latest
     - name: Extract ubuntu1604
@@ -485,7 +470,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         file: dockerfiles/Dockerfile.ubuntu1604_auzre
-        load: true
         push: true
         tags: kulukami/elkeid_driver_ubuntu1604_auzre:latest
     - name: Extract ubuntu1604_auzre
@@ -516,7 +500,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         file: dockerfiles/Dockerfile.ubuntu1604_aws
-        load: true
         push: true
         tags: kulukami/elkeid_driver_ubuntu1604_aws:latest
     - name: Extract ubuntu1604_aws
@@ -547,7 +530,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         file: dockerfiles/Dockerfile.ubuntu1804
-        load: true
         push: true
         tags: kulukami/elkeid_driver_ubuntu1804:latest
     - name: Extract ubuntu1804
@@ -578,7 +560,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         file: dockerfiles/Dockerfile.ubuntu1804_aws
-        load: true
         push: true
         tags: kulukami/elkeid_driver_ubuntu1804_aws:latest
     - name: Extract ubuntu1804_aws
@@ -609,7 +590,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         file: dockerfiles/Dockerfile.ubuntu1804_azure
-        load: true
         push: true
         tags: kulukami/elkeid_driver_ubuntu1804_azure:latest
     - name: Extract ubuntu1804_azure
@@ -640,7 +620,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         file: dockerfiles/Dockerfile.ubuntu2004
-        load: true
         push: true
         tags: kulukami/elkeid_driver_ubuntu2004:latest
     - name: Extract ubuntu2004
@@ -671,7 +650,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         file: dockerfiles/Dockerfile.ubuntu2004_aws
-        load: true
         push: true
         tags: kulukami/elkeid_driver_ubuntu2004_aws:latest
     - name: Extract ubuntu2004_aws
@@ -702,7 +680,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         file: dockerfiles/Dockerfile.ubuntu2004_azure
-        load: true
         push: true
         tags: kulukami/elkeid_driver_ubuntu2004_azure:latest
     - name: Extract ubuntu2004_azure
@@ -733,7 +710,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         file: dockerfiles/Dockerfile.ubuntu2204
-        load: true
         push: true
         tags: kulukami/elkeid_driver_ubuntu2204:latest
     - name: Extract ubuntu2204
