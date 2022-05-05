@@ -423,36 +423,6 @@ jobs:
       with:
         name: elkeid_driver_ubuntu1404_k4
         path: ${{steps.extract-ubuntu1404_k4.outputs.destination}}
-  build_ubuntu1604:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        submodules: recursive
-    - name: Login to Docker Hub
-      uses: docker/login-action@v1
-      with:
-        password: ${{secrets.DOCKERHUB_TOKEN}}
-        username: ${{secrets.DOCKERHUB_USERNAME}}
-    - name: Set up Docker Buildx ubuntu1604
-      uses: docker/setup-buildx-action@v1
-    - name: Build ubuntu1604
-      uses: docker/build-push-action@v2
-      with:
-        file: dockerfiles/Dockerfile.ubuntu1604
-        push: true
-        tags: kulukami/elkeid_driver_ubuntu1604:latest
-    - name: Extract ubuntu1604
-      id: extract-ubuntu1604
-      uses: shrink/actions-docker-extract@v1
-      with:
-        image: kulukami/elkeid_driver_ubuntu1604:latest
-        path: /ko_output/.
-    - name: Upload ubuntu1604
-      uses: actions/upload-artifact@v3
-      with:
-        name: elkeid_driver_ubuntu1604
-        path: ${{steps.extract-ubuntu1604.outputs.destination}}
   build_ubuntu1604_auzre:
     runs-on: ubuntu-latest
     steps:
@@ -513,6 +483,126 @@ jobs:
       with:
         name: elkeid_driver_ubuntu1604_aws
         path: ${{steps.extract-ubuntu1604_aws.outputs.destination}}
+  build_ubuntu1604_k410:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: Login to Docker Hub
+      uses: docker/login-action@v1
+      with:
+        password: ${{secrets.DOCKERHUB_TOKEN}}
+        username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Set up Docker Buildx ubuntu1604_k410
+      uses: docker/setup-buildx-action@v1
+    - name: Build ubuntu1604_k410
+      uses: docker/build-push-action@v2
+      with:
+        file: dockerfiles/Dockerfile.ubuntu1604_k410
+        push: true
+        tags: kulukami/elkeid_driver_ubuntu1604_k410:latest
+    - name: Extract ubuntu1604_k410
+      id: extract-ubuntu1604_k410
+      uses: shrink/actions-docker-extract@v1
+      with:
+        image: kulukami/elkeid_driver_ubuntu1604_k410:latest
+        path: /ko_output/.
+    - name: Upload ubuntu1604_k410
+      uses: actions/upload-artifact@v3
+      with:
+        name: elkeid_driver_ubuntu1604_k410
+        path: ${{steps.extract-ubuntu1604_k410.outputs.destination}}
+  build_ubuntu1604_k413:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: Login to Docker Hub
+      uses: docker/login-action@v1
+      with:
+        password: ${{secrets.DOCKERHUB_TOKEN}}
+        username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Set up Docker Buildx ubuntu1604_k413
+      uses: docker/setup-buildx-action@v1
+    - name: Build ubuntu1604_k413
+      uses: docker/build-push-action@v2
+      with:
+        file: dockerfiles/Dockerfile.ubuntu1604_k413
+        push: true
+        tags: kulukami/elkeid_driver_ubuntu1604_k413:latest
+    - name: Extract ubuntu1604_k413
+      id: extract-ubuntu1604_k413
+      uses: shrink/actions-docker-extract@v1
+      with:
+        image: kulukami/elkeid_driver_ubuntu1604_k413:latest
+        path: /ko_output/.
+    - name: Upload ubuntu1604_k413
+      uses: actions/upload-artifact@v3
+      with:
+        name: elkeid_driver_ubuntu1604_k413
+        path: ${{steps.extract-ubuntu1604_k413.outputs.destination}}
+  build_ubuntu1604_k44:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: Login to Docker Hub
+      uses: docker/login-action@v1
+      with:
+        password: ${{secrets.DOCKERHUB_TOKEN}}
+        username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Set up Docker Buildx ubuntu1604_k44
+      uses: docker/setup-buildx-action@v1
+    - name: Build ubuntu1604_k44
+      uses: docker/build-push-action@v2
+      with:
+        file: dockerfiles/Dockerfile.ubuntu1604_k44
+        push: true
+        tags: kulukami/elkeid_driver_ubuntu1604_k44:latest
+    - name: Extract ubuntu1604_k44
+      id: extract-ubuntu1604_k44
+      uses: shrink/actions-docker-extract@v1
+      with:
+        image: kulukami/elkeid_driver_ubuntu1604_k44:latest
+        path: /ko_output/.
+    - name: Upload ubuntu1604_k44
+      uses: actions/upload-artifact@v3
+      with:
+        name: elkeid_driver_ubuntu1604_k44
+        path: ${{steps.extract-ubuntu1604_k44.outputs.destination}}
+  build_ubuntu1604_k48:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: Login to Docker Hub
+      uses: docker/login-action@v1
+      with:
+        password: ${{secrets.DOCKERHUB_TOKEN}}
+        username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Set up Docker Buildx ubuntu1604_k48
+      uses: docker/setup-buildx-action@v1
+    - name: Build ubuntu1604_k48
+      uses: docker/build-push-action@v2
+      with:
+        file: dockerfiles/Dockerfile.ubuntu1604_k48
+        push: true
+        tags: kulukami/elkeid_driver_ubuntu1604_k48:latest
+    - name: Extract ubuntu1604_k48
+      id: extract-ubuntu1604_k48
+      uses: shrink/actions-docker-extract@v1
+      with:
+        image: kulukami/elkeid_driver_ubuntu1604_k48:latest
+        path: /ko_output/.
+    - name: Upload ubuntu1604_k48
+      uses: actions/upload-artifact@v3
+      with:
+        name: elkeid_driver_ubuntu1604_k48
+        path: ${{steps.extract-ubuntu1604_k48.outputs.destination}}
   build_ubuntu1804:
     runs-on: ubuntu-latest
     steps:
