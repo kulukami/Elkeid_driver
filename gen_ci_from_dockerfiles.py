@@ -80,9 +80,6 @@ yaml_cfg = OrderedDict(
                 "branches": [
                     "main",
                     "'releases/**'"
-                ],
-                "tags": [
-                    "'*'",
                 ]
             },
             "schedule": ["cron : '0 3 * * *'"]
