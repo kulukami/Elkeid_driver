@@ -1,7 +1,12 @@
 FROM ubuntu:trusty AS trusty
 
+
 RUN apt update;
 RUN apt install -y wget curl tree git gcc build-essential kbuild libelf-dev;
+
+ADD . /elkeid_driver
+WORKDIR /elkeid_driver
+
 
 RUN apt-get -y install linux-azure-headers-3.13.* || true
 RUN bash ./batch_compile.sh
@@ -27,7 +32,3 @@ RUN apt-get -y install linux-azure-headers-4.15.* || true
 RUN bash ./batch_compile.sh
 RUN apt-get -y remove  linux-azure-headers-4.15.* || true
 
-
-ADD . /elkeid_driver
-WORKDIR /elkeid_driver
-RUN bash ./batch_compile.sh
