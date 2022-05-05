@@ -77,8 +77,15 @@ yaml_cfg = OrderedDict(
         "name": "Elkeid_driver",
         "on": {
             "push": {
-                "branches": "[ main ]"
-            }
+                "branches": [
+                    "main",
+                    "'releases/**'"
+                ],
+                "tags": [
+                    "'*'",
+                ]
+            },
+            "schedule": ["cron : '0 3 * * *'"]
         }
     }
 )
