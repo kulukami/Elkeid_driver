@@ -7,34 +7,34 @@ ADD . /elkeid_driver
 
 RUN apt-get -y install linux-headers-4.4.0-22-generic || true
 
-RUN apt-get -y install linux-headers-3.13.* || true
+RUN apt-get -y install linux-headers-3.13.*-generic || true
 WORKDIR /elkeid_driver
 RUN bash ./batch_compile.sh
-RUN apt-get -y remove linux-headers-3.13.* || true
+RUN apt-get -y remove linux-headers-3.13.*-generic || true
 
-RUN apt-get -y install linux-headers-3.16.* || true
+RUN apt-get -y install linux-headers-3.16.*-generic || true
 WORKDIR /elkeid_driver
 RUN bash ./batch_compile.sh
-RUN apt-get -y remove linux-headers-3.16.* || true
+RUN apt-get -y remove linux-headers-3.16.*-generic || true
 
-RUN apt-get -y install linux-headers-3.19.* || true
+RUN apt-get -y install linux-headers-3.19.*-generic || true
 WORKDIR /elkeid_driver
 RUN bash ./batch_compile.sh
-RUN apt-get -y remove linux-headers-3.19.* || true
+RUN apt-get -y remove linux-headers-3.19.*-generic || true
 
-RUN apt-get -y install linux-headers-4.2.* || true
+RUN apt-get -y install linux-headers-4.2.*-generic || true
 WORKDIR /elkeid_driver
 RUN bash ./batch_compile.sh
-RUN apt-get -y remove linux-headers-4.2.* || true
+RUN apt-get -y remove linux-headers-4.2.*-generic || true
 
-RUN apt-get -y install linux-headers-4.4.* || true
+RUN apt-get -y install linux-headers-4.4.*-generic || true
 WORKDIR /elkeid_driver
 RUN bash ./batch_compile.sh
-RUN apt-get -y remove linux-headers-4.4.* || true
+RUN apt-get -y remove linux-headers-4.4.*-generic || true
 
-RUN apt-get -y install linux-headers-4.15.* || true
+RUN apt-get -y install linux-headers-4.15.*-generic || true
 WORKDIR /elkeid_driver
 RUN bash ./batch_compile.sh
-RUN apt-get -y remove linux-headers-4.15.* || true
+RUN apt-get -y remove linux-headers-4.15.*-generic || true
 
 

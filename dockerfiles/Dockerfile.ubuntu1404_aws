@@ -5,32 +5,32 @@ RUN apt install -y wget curl tree git gcc build-essential kbuild libelf-dev;
 
 ADD . /elkeid_driver
 
-RUN apt-get -y install linux-aws-headers-3.13.* || true
+RUN apt-get -y install linux-headers-3.13.*-aws || true
 WORKDIR /elkeid_driver
 RUN bash ./batch_compile.sh
-RUN apt-get -y remove linux-aws-headers-3.13.* || true
+RUN apt-get -y remove linux-headers-3.13.*-aws || true
 
-RUN apt-get -y install linux-aws-headers-3.16.* || true
+RUN apt-get -y install linux-headers-3.16.*-aws || true
 WORKDIR /elkeid_driver
 RUN bash ./batch_compile.sh
-RUN apt-get -y remove linux-aws-headers-3.16.*  || true
+RUN apt-get -y remove linux-headers-3.16.*-aws  || true
 
-RUN apt-get -y install linux-aws-headers-3.19.* || true
+RUN apt-get -y install linux-headers-3.19.*-aws || true
 WORKDIR /elkeid_driver
 RUN bash ./batch_compile.sh
-RUN apt-get -y remove linux-aws-headers-3.19.* || true
+RUN apt-get -y remove linux-headers-3.19.*-aws || true
 
-RUN apt-get -y install linux-aws-headers-4.2.* || true
+RUN apt-get -y install linux-headers-4.2.*-aws || true
 WORKDIR /elkeid_driver
 RUN bash ./batch_compile.sh
-RUN apt-get -y remove linux-aws-headers-4.2.* || true
+RUN apt-get -y remove linux-headers-4.2.*-aws || true
 
-RUN apt-get -y install linux-aws-headers-4.4.* || true
+RUN apt-get -y install linux-headers-4.4.*-aws || true
 WORKDIR /elkeid_driver
 RUN bash ./batch_compile.sh
-RUN apt-get -y remove linux-aws-headers-4.4.* || true
+RUN apt-get -y remove linux-headers-4.4.*-aws || true
 
-RUN apt-get -y install linux-aws-headers-4.15.* || true
+RUN apt-get -y install linux-headers-4.15.*-aws-aws || true
 WORKDIR /elkeid_driver
 RUN bash ./batch_compile.sh
-RUN apt-get -y remove linux-aws-headers-4.15.* || true
+RUN apt-get -y remove linux-headers-4.15.* || true

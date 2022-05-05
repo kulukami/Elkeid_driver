@@ -8,27 +8,27 @@ ADD . /elkeid_driver
 WORKDIR /elkeid_driver
 
 
-RUN apt-get -y install linux-azure-headers-3.13.* || true
+RUN apt-get -y install linux-headers-3.13.*-azure || true
 RUN bash ./batch_compile.sh
-RUN apt-get -y remove  linux-azure-headers-3.13.* || true
+RUN apt-get -y remove  linux-headers-3.13.*-azure || true
 
-RUN apt-get -y install linux-azure-headers-3.16.* || true
+RUN apt-get -y install linux-headers-3.16.*-azure || true
 RUN bash ./batch_compile.sh
-RUN apt-get -y remove  linux-azure-headers-3.16.* || true
+RUN apt-get -y remove  linux-headers-3.16.*-azure || true
 
-RUN apt-get -y install linux-azure-headers-3.19.* || true
+RUN apt-get -y install linux-headers-3.19.*-azure || true
 RUN bash ./batch_compile.sh
-RUN apt-get -y remove  linux-azure-headers-3.19.* || true
+RUN apt-get -y remove  linux-headers-3.19.*-azure || true
 
-RUN apt-get -y install linux-azure-headers-4.2.* || true
+RUN apt-get -y install linux-headers-4.2.*-azure || true
 RUN bash ./batch_compile.sh
-RUN apt-get -y remove  linux-azure-headers-4.2.* || true
+RUN apt-get -y remove  linux-headers-4.2.*-azure || true
 
-RUN apt-get -y install linux-azure-headers-4.4.* || true
+RUN apt-get -y install linux-headers-4.4.*-azure || true
 RUN bash ./batch_compile.sh
-RUN apt-get -y remove  linux-azure-headers-4.4.*  || true
+RUN apt-get -y remove  linux-headers-4.4.*-azure  || true
 
-RUN apt-get -y install linux-azure-headers-4.15.* || true
+RUN apt-get -y install linux-headers-4.15.*-azure || true
 RUN bash ./batch_compile.sh
-RUN apt-get -y remove  linux-azure-headers-4.15.* || true
+RUN apt-get -y remove  linux-headers-4.15.*-azure || true
 

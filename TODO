@@ -57,3 +57,6 @@
       with:
         path: ${{ steps.extract-alinux3.outputs.destination }}
         name: elkeid_driver_alinux3
+
+
+for f in /usr/src/*generic; do echo ${f};done
