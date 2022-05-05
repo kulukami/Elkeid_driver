@@ -25,6 +25,14 @@ def gen_job(vmname):
                     }
                 }),
                 OrderedDict({
+                    "name": "Login to Docker Hub",
+                    "uses": "docker/login-action@v1",
+                    "with": {
+                        "username": "${{secrets.DOCKERHUB_USERNAME}}",
+                        "password": "${{secrets.DOCKERHUB_TOKEN}}"
+                    }
+                }),
+                OrderedDict({
                     "name": "Set up Docker Buildx "+vmname,
                     "uses": "docker/setup-buildx-action@v1"
                 }),
@@ -34,7 +42,8 @@ def gen_job(vmname):
                     "with": {
                         "file": "dockerfiles/Dockerfile."+vmname,
                         "load": True,
-                        "tags": "elkeid_driver/"+vmname+":latest"
+                        "push": True,
+                        "tags": "kulukami/elkeid_driver_"+vmname+":latest"
                     }
                 }),
                 OrderedDict({
@@ -42,7 +51,7 @@ def gen_job(vmname):
                     "id": "extract-"+vmname,
                     "uses": "shrink/actions-docker-extract@v1",
                     "with": {
-                        "image": "elkeid_driver/"+vmname+":latest",
+                        "image": "kulukami/elkeid_driver_"+vmname+":latest",
                         "path": "/ko_output/."
                     }
                 }),
