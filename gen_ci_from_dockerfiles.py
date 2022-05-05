@@ -41,7 +41,6 @@ def gen_job(vmname):
                     "uses": "docker/build-push-action@v2",
                     "with": {
                         "file": "dockerfiles/Dockerfile."+vmname,
-                        "load": True,
                         "push": True,
                         "tags": "kulukami/elkeid_driver_"+vmname+":latest"
                     }
