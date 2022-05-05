@@ -5,7 +5,7 @@ from collections import OrderedDict
 
 all_dockers = os.listdir("dockerfiles")
 
-black_list = []
+black_list = ["rhel7_elrepo", "rhel8_elrepo"]
 
 all_vms = []
 
