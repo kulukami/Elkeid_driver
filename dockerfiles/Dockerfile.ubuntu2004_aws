@@ -1,4 +1,4 @@
-FROM ubuntu:focal AS focal
+FROM ubuntu:focal AS focal_aws
 
 RUN apt update;
 RUN apt install -y wget curl tree git gcc build-essential kbuild libelf-dev;

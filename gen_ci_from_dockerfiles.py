@@ -5,7 +5,7 @@ from collections import OrderedDict
 
 all_dockers = os.listdir("dockerfiles")
 
-black_list = ["alinux2", "alinux3"]
+black_list = []
 
 all_vms = []
 
@@ -43,7 +43,7 @@ def gen_job(vmname):
                     "uses": "shrink/actions-docker-extract@v1",
                     "with": {
                         "image": "elkeid_driver/"+vmname+":latest",
-                        "path": "./ko_output/."
+                        "path": "/ko_output/."
                     }
                 }),
                 OrderedDict({
