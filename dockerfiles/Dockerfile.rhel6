@@ -1,14 +1,15 @@
 FROM centos:centos6 AS rhel6
 
 RUN sed -e "s|^mirrorlist=|#mirrorlist=|g" \
-         -e "s|^#baseurl=http://mirror.centos.org/\$contentdir/\$releasever|baseurl=https://mirrors.tuna.tsinghua.edu.cn/centos-vault/6.10|g" \
+         -e "s|^#baseurl=http://mirror.centos.org/centos/\$releasever|baseurl=https://mirrors.aliyun.com/centos-vault/6.10|g" \
          -i.bak \
          /etc/yum.repos.d/CentOS-*.repo
 
+RUN yum repolist
+RUN yum update -n
 RUN yum install -y wget perl gcc make tree elfutils-libelf-devel; 
 RUN yum groupinstall -y  "Development Tools"; 
 RUN mkdir /root/headers
-
 
 RUN cd /tmp; \
 wget -q -c -r -np -nd -nH -A 'kernel-devel*x86_64.rpm' 'https://mirrors.nju.edu.cn/centos-vault/6.10/updates/x86_64/Packages/'; \
@@ -23,7 +24,6 @@ wget -q -c -r -np -nd -nH -A 'kernel-devel*x86_64.rpm' 'https://mirrors.nju.edu.
 wget -q -c -r -np -nd -nH -A 'kernel-devel*x86_64.rpm' 'https://mirrors.nju.edu.cn/centos-vault/6.1/updates/x86_64/Packages/'; \
 wget -q -c -r -np -nd -nH -A 'kernel-devel*x86_64.rpm' 'https://mirrors.nju.edu.cn/centos-vault/6.0/updates/x86_64/Packages/';
 RUN rpm -ivh /tmp/*.rpm || true
-
 
 
 ADD . /elkeid_driver
