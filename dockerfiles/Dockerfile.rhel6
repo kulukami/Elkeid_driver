@@ -1,4 +1,4 @@
-FROM centos/centos6:latest AS rhel6
+FROM centos:centos6 AS rhel6
 
 RUN yum install -y wget perl gcc make tree elfutils-libelf-devel; 
 RUN yum groupinstall -y  "Development Tools"; 
