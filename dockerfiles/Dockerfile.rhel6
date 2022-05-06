@@ -5,7 +5,6 @@ RUN sed -e "s|^mirrorlist=|#mirrorlist=|g" \
          -i.bak \
          /etc/yum.repos.d/CentOS-*.repo
 
-RUN yum repolist
 RUN yum install -y wget perl gcc make tree elfutils-libelf-devel; 
 RUN yum groupinstall -y  "Development Tools"; 
 RUN mkdir /root/headers
