@@ -16,7 +16,6 @@ def gen_job(vmname):
     some_data = OrderedDict(
         {
             "runs-on": "ubuntu-latest",
-            "permissions": "write-all",
             "steps": [
                 OrderedDict({
                     "uses": "actions/checkout@v2",
@@ -32,22 +31,6 @@ def gen_job(vmname):
                         "password": "${{secrets.DOCKERHUB_TOKEN}}"
                     }
                 }),
-                OrderedDict({
-                    "name": "Create Release",
-
-                    "id": "create_release",
-                    "uses": "actions/create-release@v1",
-                    "env": {
-                        "GITHUB_TOKEN": "${{secrets.GITHUB_TOKEN}}"
-                    },
-                    "with": {
-                        "tag_name": "${{github.ref}}",
-                        "release_name": "Release ${{github.ref}}",
-                        "draft": False,
-                        "prerelease": False,
-                    }
-                }),
-
                 OrderedDict({
                     "name": "Set up Docker Buildx "+vmname,
                     "uses": "docker/setup-buildx-action@v1"
@@ -78,26 +61,6 @@ def gen_job(vmname):
                         "path": "${{steps.extract-"+vmname+".outputs.destination}}",
                         "name": "elkeid_driver_"+vmname
                     }
-                }),
-
-                OrderedDict({
-                    "name": "Pack artifact "+vmname,
-                    "run": "zip --junk-paths -r elkeid_driver_"+vmname+".zip ${{steps.extract-"+vmname+".outputs.destination}}"
-                }),
-
-                OrderedDict({
-                    "name": "Upload Release Asset "+vmname,
-                    "id": "upload-release-asset",
-                    "uses": "actions/upload-release-asset@v1",
-                    "env": {
-                        "GITHUB_TOKEN": "${{secrets.GITHUB_TOKEN}}"
-                    },
-                    "with": {
-                        "upload_url": "${{steps.create_release.outputs.upload_url}}",
-                        "asset_path": "./elkeid_driver_"+vmname + ".zip",
-                        "asset_name": "elkeid_driver_"+vmname + ".zip",
-                        "asset_content_type": "application/zip"
-                    },
                 })
             ]
 
@@ -124,6 +87,60 @@ yaml_cfg = OrderedDict(
     }
 )
 
+create_release_job = OrderedDict(
+    {
+        "runs-on": "ubuntu-latest",
+        "permissions": "write-all",
+        "steps": [
+            OrderedDict({
+                "name": "Create Release",
+                "id": "create_release",
+                "uses": "actions/create-release@v1",
+                "env": {
+                        "GITHUB_TOKEN": "${{secrets.GITHUB_TOKEN}}"
+                },
+                "with": {
+                    "tag_name": "${{github.ref}}",
+                    "release_name": "Release ${{github.ref}}",
+                    "draft": False,
+                    "prerelease": False,
+                }
+            }),
+            OrderedDict({
+                "uses": "actions/download-artifact@v3",
+                "with": {
+                    "path": "/all_elkeid_drivers"
+                }
+            }),
+            OrderedDict({
+                "name": "Pack artifact ",
+                "run": "zip --junk-paths -r elkeid_driver.zip /all_elkeid_drivers"
+            }),
+
+            OrderedDict({
+                "name": "Upload Release Asset ",
+                "id": "upload-release-asset",
+                "uses": "actions/upload-release-asset@v1",
+                "env": {
+                        "GITHUB_TOKEN": "${{secrets.GITHUB_TOKEN}}"
+                },
+                "with": {
+                    "upload_url": "${{steps.create_release.outputs.upload_url}}",
+                    "asset_path": "./elkeid_driver.zip",
+                    "asset_name": "elkeid_driver.zip",
+                    "asset_content_type": "application/zip"
+                },
+            })
+        ]
+    }
+)
+
+total_jobs_list = []
+for each in all_vms:
+    if each not in black_list:
+        total_jobs_list.append("build_"+each)
+create_release_job.update({"needs": total_jobs_list})
+
 total_jobs = OrderedDict({})
 
 all_vms.sort()
@@ -132,6 +149,8 @@ for each in all_vms:
     if each not in black_list:
         tmp_job = gen_job(each)
         total_jobs.update({"build_"+each: tmp_job})
+
+total_jobs.update({"release_all": create_release_job})
 
 
 yaml_cfg.update({"jobs": total_jobs})
