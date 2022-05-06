@@ -19,6 +19,7 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
+      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -71,6 +72,7 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
+      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -123,6 +125,7 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
+      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -175,6 +178,7 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
+      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -227,6 +231,7 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
+      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -279,6 +284,7 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
+      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -331,6 +337,7 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
+      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -383,6 +390,7 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
+      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -435,6 +443,7 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
+      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -487,6 +496,7 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
+      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -539,6 +549,7 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
+      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -591,6 +602,7 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
+      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -643,6 +655,7 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
+      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -695,6 +708,7 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
+      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -747,6 +761,7 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
+      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -799,6 +814,7 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
+      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -851,6 +867,7 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
+      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -903,6 +920,7 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
+      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -955,6 +973,7 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
+      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -1007,6 +1026,7 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
+      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -1059,6 +1079,7 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
+      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -1111,6 +1132,7 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
+      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -1163,6 +1185,7 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
+      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -1215,6 +1238,7 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
+      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -1267,6 +1291,7 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
+      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -1319,6 +1344,7 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
+      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -1371,6 +1397,7 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
+      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -1423,6 +1450,7 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
+      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:

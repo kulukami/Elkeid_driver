@@ -34,6 +34,7 @@ def gen_job(vmname):
 
                 OrderedDict({
                     "name": "Create Release",
+                    "permissions": "write-all",
                     "id": "create_release",
                     "uses": "actions/create-release@v1",
                     "env": {
