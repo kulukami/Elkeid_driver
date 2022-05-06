@@ -157,3 +157,8 @@ Cargo.lock
 .ccls-cache/
 
 /output/*
+output
+/output
+output/
+
+test.sh

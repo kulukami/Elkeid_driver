@@ -18,6 +18,16 @@ jobs:
       with:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        draft: false
+        prerelease: false
+        release_name: Release ${{github.ref}}
+        tag_name: ${{github.ref}}
     - name: Set up Docker Buildx aliyun_linux2
       uses: docker/setup-buildx-action@v1
     - name: Build aliyun_linux2
@@ -37,6 +47,18 @@ jobs:
       with:
         name: elkeid_driver_aliyun_linux2
         path: ${{steps.extract-aliyun_linux2.outputs.destination}}
+    - name: Pack artifact aliyun_linux2
+      run: zip --junk-paths -r elkeid_driver_aliyun_linux2.zip ${{steps.extract-aliyun_linux2.outputs.destination}}
+    - name: Upload Release Asset aliyun_linux2
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        asset_content_type: application/zip
+        asset_name: elkeid_driver_aliyun_linux2.zip
+        asset_path: ./elkeid_driver_aliyun_linux2.zip
+        upload_url: ${{steps.create_release.outputs.upload_url}}
   build_aliyun_linux3:
     runs-on: ubuntu-latest
     steps:
@@ -48,6 +70,16 @@ jobs:
       with:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        draft: false
+        prerelease: false
+        release_name: Release ${{github.ref}}
+        tag_name: ${{github.ref}}
     - name: Set up Docker Buildx aliyun_linux3
       uses: docker/setup-buildx-action@v1
     - name: Build aliyun_linux3
@@ -67,6 +99,18 @@ jobs:
       with:
         name: elkeid_driver_aliyun_linux3
         path: ${{steps.extract-aliyun_linux3.outputs.destination}}
+    - name: Pack artifact aliyun_linux3
+      run: zip --junk-paths -r elkeid_driver_aliyun_linux3.zip ${{steps.extract-aliyun_linux3.outputs.destination}}
+    - name: Upload Release Asset aliyun_linux3
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        asset_content_type: application/zip
+        asset_name: elkeid_driver_aliyun_linux3.zip
+        asset_path: ./elkeid_driver_aliyun_linux3.zip
+        upload_url: ${{steps.create_release.outputs.upload_url}}
   build_amazonlinux:
     runs-on: ubuntu-latest
     steps:
@@ -78,6 +122,16 @@ jobs:
       with:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        draft: false
+        prerelease: false
+        release_name: Release ${{github.ref}}
+        tag_name: ${{github.ref}}
     - name: Set up Docker Buildx amazonlinux
       uses: docker/setup-buildx-action@v1
     - name: Build amazonlinux
@@ -97,6 +151,18 @@ jobs:
       with:
         name: elkeid_driver_amazonlinux
         path: ${{steps.extract-amazonlinux.outputs.destination}}
+    - name: Pack artifact amazonlinux
+      run: zip --junk-paths -r elkeid_driver_amazonlinux.zip ${{steps.extract-amazonlinux.outputs.destination}}
+    - name: Upload Release Asset amazonlinux
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        asset_content_type: application/zip
+        asset_name: elkeid_driver_amazonlinux.zip
+        asset_path: ./elkeid_driver_amazonlinux.zip
+        upload_url: ${{steps.create_release.outputs.upload_url}}
   build_amazonlinux510:
     runs-on: ubuntu-latest
     steps:
@@ -108,6 +174,16 @@ jobs:
       with:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        draft: false
+        prerelease: false
+        release_name: Release ${{github.ref}}
+        tag_name: ${{github.ref}}
     - name: Set up Docker Buildx amazonlinux510
       uses: docker/setup-buildx-action@v1
     - name: Build amazonlinux510
@@ -127,6 +203,18 @@ jobs:
       with:
         name: elkeid_driver_amazonlinux510
         path: ${{steps.extract-amazonlinux510.outputs.destination}}
+    - name: Pack artifact amazonlinux510
+      run: zip --junk-paths -r elkeid_driver_amazonlinux510.zip ${{steps.extract-amazonlinux510.outputs.destination}}
+    - name: Upload Release Asset amazonlinux510
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        asset_content_type: application/zip
+        asset_name: elkeid_driver_amazonlinux510.zip
+        asset_path: ./elkeid_driver_amazonlinux510.zip
+        upload_url: ${{steps.create_release.outputs.upload_url}}
   build_amazonlinux54:
     runs-on: ubuntu-latest
     steps:
@@ -138,6 +226,16 @@ jobs:
       with:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        draft: false
+        prerelease: false
+        release_name: Release ${{github.ref}}
+        tag_name: ${{github.ref}}
     - name: Set up Docker Buildx amazonlinux54
       uses: docker/setup-buildx-action@v1
     - name: Build amazonlinux54
@@ -157,6 +255,18 @@ jobs:
       with:
         name: elkeid_driver_amazonlinux54
         path: ${{steps.extract-amazonlinux54.outputs.destination}}
+    - name: Pack artifact amazonlinux54
+      run: zip --junk-paths -r elkeid_driver_amazonlinux54.zip ${{steps.extract-amazonlinux54.outputs.destination}}
+    - name: Upload Release Asset amazonlinux54
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        asset_content_type: application/zip
+        asset_name: elkeid_driver_amazonlinux54.zip
+        asset_path: ./elkeid_driver_amazonlinux54.zip
+        upload_url: ${{steps.create_release.outputs.upload_url}}
   build_debian10:
     runs-on: ubuntu-latest
     steps:
@@ -168,6 +278,16 @@ jobs:
       with:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        draft: false
+        prerelease: false
+        release_name: Release ${{github.ref}}
+        tag_name: ${{github.ref}}
     - name: Set up Docker Buildx debian10
       uses: docker/setup-buildx-action@v1
     - name: Build debian10
@@ -187,6 +307,18 @@ jobs:
       with:
         name: elkeid_driver_debian10
         path: ${{steps.extract-debian10.outputs.destination}}
+    - name: Pack artifact debian10
+      run: zip --junk-paths -r elkeid_driver_debian10.zip ${{steps.extract-debian10.outputs.destination}}
+    - name: Upload Release Asset debian10
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        asset_content_type: application/zip
+        asset_name: elkeid_driver_debian10.zip
+        asset_path: ./elkeid_driver_debian10.zip
+        upload_url: ${{steps.create_release.outputs.upload_url}}
   build_debian11:
     runs-on: ubuntu-latest
     steps:
@@ -198,6 +330,16 @@ jobs:
       with:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        draft: false
+        prerelease: false
+        release_name: Release ${{github.ref}}
+        tag_name: ${{github.ref}}
     - name: Set up Docker Buildx debian11
       uses: docker/setup-buildx-action@v1
     - name: Build debian11
@@ -217,6 +359,18 @@ jobs:
       with:
         name: elkeid_driver_debian11
         path: ${{steps.extract-debian11.outputs.destination}}
+    - name: Pack artifact debian11
+      run: zip --junk-paths -r elkeid_driver_debian11.zip ${{steps.extract-debian11.outputs.destination}}
+    - name: Upload Release Asset debian11
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        asset_content_type: application/zip
+        asset_name: elkeid_driver_debian11.zip
+        asset_path: ./elkeid_driver_debian11.zip
+        upload_url: ${{steps.create_release.outputs.upload_url}}
   build_debian8:
     runs-on: ubuntu-latest
     steps:
@@ -228,6 +382,16 @@ jobs:
       with:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        draft: false
+        prerelease: false
+        release_name: Release ${{github.ref}}
+        tag_name: ${{github.ref}}
     - name: Set up Docker Buildx debian8
       uses: docker/setup-buildx-action@v1
     - name: Build debian8
@@ -247,6 +411,18 @@ jobs:
       with:
         name: elkeid_driver_debian8
         path: ${{steps.extract-debian8.outputs.destination}}
+    - name: Pack artifact debian8
+      run: zip --junk-paths -r elkeid_driver_debian8.zip ${{steps.extract-debian8.outputs.destination}}
+    - name: Upload Release Asset debian8
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        asset_content_type: application/zip
+        asset_name: elkeid_driver_debian8.zip
+        asset_path: ./elkeid_driver_debian8.zip
+        upload_url: ${{steps.create_release.outputs.upload_url}}
   build_debian9:
     runs-on: ubuntu-latest
     steps:
@@ -258,6 +434,16 @@ jobs:
       with:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        draft: false
+        prerelease: false
+        release_name: Release ${{github.ref}}
+        tag_name: ${{github.ref}}
     - name: Set up Docker Buildx debian9
       uses: docker/setup-buildx-action@v1
     - name: Build debian9
@@ -277,6 +463,70 @@ jobs:
       with:
         name: elkeid_driver_debian9
         path: ${{steps.extract-debian9.outputs.destination}}
+    - name: Pack artifact debian9
+      run: zip --junk-paths -r elkeid_driver_debian9.zip ${{steps.extract-debian9.outputs.destination}}
+    - name: Upload Release Asset debian9
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        asset_content_type: application/zip
+        asset_name: elkeid_driver_debian9.zip
+        asset_path: ./elkeid_driver_debian9.zip
+        upload_url: ${{steps.create_release.outputs.upload_url}}
+  build_rhel6:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: Login to Docker Hub
+      uses: docker/login-action@v1
+      with:
+        password: ${{secrets.DOCKERHUB_TOKEN}}
+        username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        draft: false
+        prerelease: false
+        release_name: Release ${{github.ref}}
+        tag_name: ${{github.ref}}
+    - name: Set up Docker Buildx rhel6
+      uses: docker/setup-buildx-action@v1
+    - name: Build rhel6
+      uses: docker/build-push-action@v2
+      with:
+        file: dockerfiles/Dockerfile.rhel6
+        push: true
+        tags: kulukami/elkeid_driver_rhel6:latest
+    - name: Extract rhel6
+      id: extract-rhel6
+      uses: shrink/actions-docker-extract@v1
+      with:
+        image: kulukami/elkeid_driver_rhel6:latest
+        path: /ko_output/.
+    - name: Upload rhel6
+      uses: actions/upload-artifact@v3
+      with:
+        name: elkeid_driver_rhel6
+        path: ${{steps.extract-rhel6.outputs.destination}}
+    - name: Pack artifact rhel6
+      run: zip --junk-paths -r elkeid_driver_rhel6.zip ${{steps.extract-rhel6.outputs.destination}}
+    - name: Upload Release Asset rhel6
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        asset_content_type: application/zip
+        asset_name: elkeid_driver_rhel6.zip
+        asset_path: ./elkeid_driver_rhel6.zip
+        upload_url: ${{steps.create_release.outputs.upload_url}}
   build_rhel7:
     runs-on: ubuntu-latest
     steps:
@@ -288,6 +538,16 @@ jobs:
       with:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        draft: false
+        prerelease: false
+        release_name: Release ${{github.ref}}
+        tag_name: ${{github.ref}}
     - name: Set up Docker Buildx rhel7
       uses: docker/setup-buildx-action@v1
     - name: Build rhel7
@@ -307,6 +567,18 @@ jobs:
       with:
         name: elkeid_driver_rhel7
         path: ${{steps.extract-rhel7.outputs.destination}}
+    - name: Pack artifact rhel7
+      run: zip --junk-paths -r elkeid_driver_rhel7.zip ${{steps.extract-rhel7.outputs.destination}}
+    - name: Upload Release Asset rhel7
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        asset_content_type: application/zip
+        asset_name: elkeid_driver_rhel7.zip
+        asset_path: ./elkeid_driver_rhel7.zip
+        upload_url: ${{steps.create_release.outputs.upload_url}}
   build_rhel8:
     runs-on: ubuntu-latest
     steps:
@@ -318,6 +590,16 @@ jobs:
       with:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        draft: false
+        prerelease: false
+        release_name: Release ${{github.ref}}
+        tag_name: ${{github.ref}}
     - name: Set up Docker Buildx rhel8
       uses: docker/setup-buildx-action@v1
     - name: Build rhel8
@@ -337,6 +619,18 @@ jobs:
       with:
         name: elkeid_driver_rhel8
         path: ${{steps.extract-rhel8.outputs.destination}}
+    - name: Pack artifact rhel8
+      run: zip --junk-paths -r elkeid_driver_rhel8.zip ${{steps.extract-rhel8.outputs.destination}}
+    - name: Upload Release Asset rhel8
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        asset_content_type: application/zip
+        asset_name: elkeid_driver_rhel8.zip
+        asset_path: ./elkeid_driver_rhel8.zip
+        upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu1204:
     runs-on: ubuntu-latest
     steps:
@@ -348,6 +642,16 @@ jobs:
       with:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        draft: false
+        prerelease: false
+        release_name: Release ${{github.ref}}
+        tag_name: ${{github.ref}}
     - name: Set up Docker Buildx ubuntu1204
       uses: docker/setup-buildx-action@v1
     - name: Build ubuntu1204
@@ -367,6 +671,18 @@ jobs:
       with:
         name: elkeid_driver_ubuntu1204
         path: ${{steps.extract-ubuntu1204.outputs.destination}}
+    - name: Pack artifact ubuntu1204
+      run: zip --junk-paths -r elkeid_driver_ubuntu1204.zip ${{steps.extract-ubuntu1204.outputs.destination}}
+    - name: Upload Release Asset ubuntu1204
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        asset_content_type: application/zip
+        asset_name: elkeid_driver_ubuntu1204.zip
+        asset_path: ./elkeid_driver_ubuntu1204.zip
+        upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu1404_k3:
     runs-on: ubuntu-latest
     steps:
@@ -378,6 +694,16 @@ jobs:
       with:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        draft: false
+        prerelease: false
+        release_name: Release ${{github.ref}}
+        tag_name: ${{github.ref}}
     - name: Set up Docker Buildx ubuntu1404_k3
       uses: docker/setup-buildx-action@v1
     - name: Build ubuntu1404_k3
@@ -397,6 +723,18 @@ jobs:
       with:
         name: elkeid_driver_ubuntu1404_k3
         path: ${{steps.extract-ubuntu1404_k3.outputs.destination}}
+    - name: Pack artifact ubuntu1404_k3
+      run: zip --junk-paths -r elkeid_driver_ubuntu1404_k3.zip ${{steps.extract-ubuntu1404_k3.outputs.destination}}
+    - name: Upload Release Asset ubuntu1404_k3
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        asset_content_type: application/zip
+        asset_name: elkeid_driver_ubuntu1404_k3.zip
+        asset_path: ./elkeid_driver_ubuntu1404_k3.zip
+        upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu1404_k4:
     runs-on: ubuntu-latest
     steps:
@@ -408,6 +746,16 @@ jobs:
       with:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        draft: false
+        prerelease: false
+        release_name: Release ${{github.ref}}
+        tag_name: ${{github.ref}}
     - name: Set up Docker Buildx ubuntu1404_k4
       uses: docker/setup-buildx-action@v1
     - name: Build ubuntu1404_k4
@@ -427,6 +775,18 @@ jobs:
       with:
         name: elkeid_driver_ubuntu1404_k4
         path: ${{steps.extract-ubuntu1404_k4.outputs.destination}}
+    - name: Pack artifact ubuntu1404_k4
+      run: zip --junk-paths -r elkeid_driver_ubuntu1404_k4.zip ${{steps.extract-ubuntu1404_k4.outputs.destination}}
+    - name: Upload Release Asset ubuntu1404_k4
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        asset_content_type: application/zip
+        asset_name: elkeid_driver_ubuntu1404_k4.zip
+        asset_path: ./elkeid_driver_ubuntu1404_k4.zip
+        upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu1604_auzre:
     runs-on: ubuntu-latest
     steps:
@@ -438,6 +798,16 @@ jobs:
       with:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        draft: false
+        prerelease: false
+        release_name: Release ${{github.ref}}
+        tag_name: ${{github.ref}}
     - name: Set up Docker Buildx ubuntu1604_auzre
       uses: docker/setup-buildx-action@v1
     - name: Build ubuntu1604_auzre
@@ -457,6 +827,18 @@ jobs:
       with:
         name: elkeid_driver_ubuntu1604_auzre
         path: ${{steps.extract-ubuntu1604_auzre.outputs.destination}}
+    - name: Pack artifact ubuntu1604_auzre
+      run: zip --junk-paths -r elkeid_driver_ubuntu1604_auzre.zip ${{steps.extract-ubuntu1604_auzre.outputs.destination}}
+    - name: Upload Release Asset ubuntu1604_auzre
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        asset_content_type: application/zip
+        asset_name: elkeid_driver_ubuntu1604_auzre.zip
+        asset_path: ./elkeid_driver_ubuntu1604_auzre.zip
+        upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu1604_aws:
     runs-on: ubuntu-latest
     steps:
@@ -468,6 +850,16 @@ jobs:
       with:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        draft: false
+        prerelease: false
+        release_name: Release ${{github.ref}}
+        tag_name: ${{github.ref}}
     - name: Set up Docker Buildx ubuntu1604_aws
       uses: docker/setup-buildx-action@v1
     - name: Build ubuntu1604_aws
@@ -487,6 +879,18 @@ jobs:
       with:
         name: elkeid_driver_ubuntu1604_aws
         path: ${{steps.extract-ubuntu1604_aws.outputs.destination}}
+    - name: Pack artifact ubuntu1604_aws
+      run: zip --junk-paths -r elkeid_driver_ubuntu1604_aws.zip ${{steps.extract-ubuntu1604_aws.outputs.destination}}
+    - name: Upload Release Asset ubuntu1604_aws
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        asset_content_type: application/zip
+        asset_name: elkeid_driver_ubuntu1604_aws.zip
+        asset_path: ./elkeid_driver_ubuntu1604_aws.zip
+        upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu1604_k410:
     runs-on: ubuntu-latest
     steps:
@@ -498,6 +902,16 @@ jobs:
       with:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        draft: false
+        prerelease: false
+        release_name: Release ${{github.ref}}
+        tag_name: ${{github.ref}}
     - name: Set up Docker Buildx ubuntu1604_k410
       uses: docker/setup-buildx-action@v1
     - name: Build ubuntu1604_k410
@@ -517,6 +931,18 @@ jobs:
       with:
         name: elkeid_driver_ubuntu1604_k410
         path: ${{steps.extract-ubuntu1604_k410.outputs.destination}}
+    - name: Pack artifact ubuntu1604_k410
+      run: zip --junk-paths -r elkeid_driver_ubuntu1604_k410.zip ${{steps.extract-ubuntu1604_k410.outputs.destination}}
+    - name: Upload Release Asset ubuntu1604_k410
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        asset_content_type: application/zip
+        asset_name: elkeid_driver_ubuntu1604_k410.zip
+        asset_path: ./elkeid_driver_ubuntu1604_k410.zip
+        upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu1604_k413:
     runs-on: ubuntu-latest
     steps:
@@ -528,6 +954,16 @@ jobs:
       with:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        draft: false
+        prerelease: false
+        release_name: Release ${{github.ref}}
+        tag_name: ${{github.ref}}
     - name: Set up Docker Buildx ubuntu1604_k413
       uses: docker/setup-buildx-action@v1
     - name: Build ubuntu1604_k413
@@ -547,6 +983,18 @@ jobs:
       with:
         name: elkeid_driver_ubuntu1604_k413
         path: ${{steps.extract-ubuntu1604_k413.outputs.destination}}
+    - name: Pack artifact ubuntu1604_k413
+      run: zip --junk-paths -r elkeid_driver_ubuntu1604_k413.zip ${{steps.extract-ubuntu1604_k413.outputs.destination}}
+    - name: Upload Release Asset ubuntu1604_k413
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        asset_content_type: application/zip
+        asset_name: elkeid_driver_ubuntu1604_k413.zip
+        asset_path: ./elkeid_driver_ubuntu1604_k413.zip
+        upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu1604_k44:
     runs-on: ubuntu-latest
     steps:
@@ -558,6 +1006,16 @@ jobs:
       with:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        draft: false
+        prerelease: false
+        release_name: Release ${{github.ref}}
+        tag_name: ${{github.ref}}
     - name: Set up Docker Buildx ubuntu1604_k44
       uses: docker/setup-buildx-action@v1
     - name: Build ubuntu1604_k44
@@ -577,6 +1035,18 @@ jobs:
       with:
         name: elkeid_driver_ubuntu1604_k44
         path: ${{steps.extract-ubuntu1604_k44.outputs.destination}}
+    - name: Pack artifact ubuntu1604_k44
+      run: zip --junk-paths -r elkeid_driver_ubuntu1604_k44.zip ${{steps.extract-ubuntu1604_k44.outputs.destination}}
+    - name: Upload Release Asset ubuntu1604_k44
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        asset_content_type: application/zip
+        asset_name: elkeid_driver_ubuntu1604_k44.zip
+        asset_path: ./elkeid_driver_ubuntu1604_k44.zip
+        upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu1604_k48:
     runs-on: ubuntu-latest
     steps:
@@ -588,6 +1058,16 @@ jobs:
       with:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        draft: false
+        prerelease: false
+        release_name: Release ${{github.ref}}
+        tag_name: ${{github.ref}}
     - name: Set up Docker Buildx ubuntu1604_k48
       uses: docker/setup-buildx-action@v1
     - name: Build ubuntu1604_k48
@@ -607,6 +1087,18 @@ jobs:
       with:
         name: elkeid_driver_ubuntu1604_k48
         path: ${{steps.extract-ubuntu1604_k48.outputs.destination}}
+    - name: Pack artifact ubuntu1604_k48
+      run: zip --junk-paths -r elkeid_driver_ubuntu1604_k48.zip ${{steps.extract-ubuntu1604_k48.outputs.destination}}
+    - name: Upload Release Asset ubuntu1604_k48
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        asset_content_type: application/zip
+        asset_name: elkeid_driver_ubuntu1604_k48.zip
+        asset_path: ./elkeid_driver_ubuntu1604_k48.zip
+        upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu1804:
     runs-on: ubuntu-latest
     steps:
@@ -618,6 +1110,16 @@ jobs:
       with:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        draft: false
+        prerelease: false
+        release_name: Release ${{github.ref}}
+        tag_name: ${{github.ref}}
     - name: Set up Docker Buildx ubuntu1804
       uses: docker/setup-buildx-action@v1
     - name: Build ubuntu1804
@@ -637,6 +1139,18 @@ jobs:
       with:
         name: elkeid_driver_ubuntu1804
         path: ${{steps.extract-ubuntu1804.outputs.destination}}
+    - name: Pack artifact ubuntu1804
+      run: zip --junk-paths -r elkeid_driver_ubuntu1804.zip ${{steps.extract-ubuntu1804.outputs.destination}}
+    - name: Upload Release Asset ubuntu1804
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        asset_content_type: application/zip
+        asset_name: elkeid_driver_ubuntu1804.zip
+        asset_path: ./elkeid_driver_ubuntu1804.zip
+        upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu1804_aws:
     runs-on: ubuntu-latest
     steps:
@@ -648,6 +1162,16 @@ jobs:
       with:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        draft: false
+        prerelease: false
+        release_name: Release ${{github.ref}}
+        tag_name: ${{github.ref}}
     - name: Set up Docker Buildx ubuntu1804_aws
       uses: docker/setup-buildx-action@v1
     - name: Build ubuntu1804_aws
@@ -667,6 +1191,18 @@ jobs:
       with:
         name: elkeid_driver_ubuntu1804_aws
         path: ${{steps.extract-ubuntu1804_aws.outputs.destination}}
+    - name: Pack artifact ubuntu1804_aws
+      run: zip --junk-paths -r elkeid_driver_ubuntu1804_aws.zip ${{steps.extract-ubuntu1804_aws.outputs.destination}}
+    - name: Upload Release Asset ubuntu1804_aws
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        asset_content_type: application/zip
+        asset_name: elkeid_driver_ubuntu1804_aws.zip
+        asset_path: ./elkeid_driver_ubuntu1804_aws.zip
+        upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu1804_azure:
     runs-on: ubuntu-latest
     steps:
@@ -678,6 +1214,16 @@ jobs:
       with:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        draft: false
+        prerelease: false
+        release_name: Release ${{github.ref}}
+        tag_name: ${{github.ref}}
     - name: Set up Docker Buildx ubuntu1804_azure
       uses: docker/setup-buildx-action@v1
     - name: Build ubuntu1804_azure
@@ -697,6 +1243,18 @@ jobs:
       with:
         name: elkeid_driver_ubuntu1804_azure
         path: ${{steps.extract-ubuntu1804_azure.outputs.destination}}
+    - name: Pack artifact ubuntu1804_azure
+      run: zip --junk-paths -r elkeid_driver_ubuntu1804_azure.zip ${{steps.extract-ubuntu1804_azure.outputs.destination}}
+    - name: Upload Release Asset ubuntu1804_azure
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        asset_content_type: application/zip
+        asset_name: elkeid_driver_ubuntu1804_azure.zip
+        asset_path: ./elkeid_driver_ubuntu1804_azure.zip
+        upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu2004:
     runs-on: ubuntu-latest
     steps:
@@ -708,6 +1266,16 @@ jobs:
       with:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        draft: false
+        prerelease: false
+        release_name: Release ${{github.ref}}
+        tag_name: ${{github.ref}}
     - name: Set up Docker Buildx ubuntu2004
       uses: docker/setup-buildx-action@v1
     - name: Build ubuntu2004
@@ -727,6 +1295,18 @@ jobs:
       with:
         name: elkeid_driver_ubuntu2004
         path: ${{steps.extract-ubuntu2004.outputs.destination}}
+    - name: Pack artifact ubuntu2004
+      run: zip --junk-paths -r elkeid_driver_ubuntu2004.zip ${{steps.extract-ubuntu2004.outputs.destination}}
+    - name: Upload Release Asset ubuntu2004
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        asset_content_type: application/zip
+        asset_name: elkeid_driver_ubuntu2004.zip
+        asset_path: ./elkeid_driver_ubuntu2004.zip
+        upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu2004_aws:
     runs-on: ubuntu-latest
     steps:
@@ -738,6 +1318,16 @@ jobs:
       with:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        draft: false
+        prerelease: false
+        release_name: Release ${{github.ref}}
+        tag_name: ${{github.ref}}
     - name: Set up Docker Buildx ubuntu2004_aws
       uses: docker/setup-buildx-action@v1
     - name: Build ubuntu2004_aws
@@ -757,6 +1347,18 @@ jobs:
       with:
         name: elkeid_driver_ubuntu2004_aws
         path: ${{steps.extract-ubuntu2004_aws.outputs.destination}}
+    - name: Pack artifact ubuntu2004_aws
+      run: zip --junk-paths -r elkeid_driver_ubuntu2004_aws.zip ${{steps.extract-ubuntu2004_aws.outputs.destination}}
+    - name: Upload Release Asset ubuntu2004_aws
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        asset_content_type: application/zip
+        asset_name: elkeid_driver_ubuntu2004_aws.zip
+        asset_path: ./elkeid_driver_ubuntu2004_aws.zip
+        upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu2004_azure:
     runs-on: ubuntu-latest
     steps:
@@ -768,6 +1370,16 @@ jobs:
       with:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        draft: false
+        prerelease: false
+        release_name: Release ${{github.ref}}
+        tag_name: ${{github.ref}}
     - name: Set up Docker Buildx ubuntu2004_azure
       uses: docker/setup-buildx-action@v1
     - name: Build ubuntu2004_azure
@@ -787,6 +1399,18 @@ jobs:
       with:
         name: elkeid_driver_ubuntu2004_azure
         path: ${{steps.extract-ubuntu2004_azure.outputs.destination}}
+    - name: Pack artifact ubuntu2004_azure
+      run: zip --junk-paths -r elkeid_driver_ubuntu2004_azure.zip ${{steps.extract-ubuntu2004_azure.outputs.destination}}
+    - name: Upload Release Asset ubuntu2004_azure
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        asset_content_type: application/zip
+        asset_name: elkeid_driver_ubuntu2004_azure.zip
+        asset_path: ./elkeid_driver_ubuntu2004_azure.zip
+        upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu2204:
     runs-on: ubuntu-latest
     steps:
@@ -798,6 +1422,16 @@ jobs:
       with:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        draft: false
+        prerelease: false
+        release_name: Release ${{github.ref}}
+        tag_name: ${{github.ref}}
     - name: Set up Docker Buildx ubuntu2204
       uses: docker/setup-buildx-action@v1
     - name: Build ubuntu2204
@@ -817,3 +1451,15 @@ jobs:
       with:
         name: elkeid_driver_ubuntu2204
         path: ${{steps.extract-ubuntu2204.outputs.destination}}
+    - name: Pack artifact ubuntu2204
+      run: zip --junk-paths -r elkeid_driver_ubuntu2204.zip ${{steps.extract-ubuntu2204.outputs.destination}}
+    - name: Upload Release Asset ubuntu2204
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        asset_content_type: application/zip
+        asset_name: elkeid_driver_ubuntu2204.zip
+        asset_path: ./elkeid_driver_ubuntu2204.zip
+        upload_url: ${{steps.create_release.outputs.upload_url}}

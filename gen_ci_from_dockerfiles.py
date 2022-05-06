@@ -15,7 +15,6 @@ jobs = []
 def gen_job(vmname):
     some_data = OrderedDict(
         {
-
             "runs-on": "ubuntu-latest",
             "steps": [
                 OrderedDict({
@@ -32,10 +31,27 @@ def gen_job(vmname):
                         "password": "${{secrets.DOCKERHUB_TOKEN}}"
                     }
                 }),
+
+                OrderedDict({
+                    "name": "Create Release",
+                    "id": "create_release",
+                    "uses": "actions/create-release@v1",
+                    "env": {
+                        "GITHUB_TOKEN": "${{secrets.GITHUB_TOKEN}}"
+                    },
+                    "with": {
+                        "tag_name": "${{github.ref}}",
+                        "release_name": "Release ${{github.ref}}",
+                        "draft": False,
+                        "prerelease": False,
+                    }
+                }),
+
                 OrderedDict({
                     "name": "Set up Docker Buildx "+vmname,
                     "uses": "docker/setup-buildx-action@v1"
                 }),
+
                 OrderedDict({
                     "name": "Build "+vmname,
                     "uses": "docker/build-push-action@v2",
@@ -61,6 +77,26 @@ def gen_job(vmname):
                         "path": "${{steps.extract-"+vmname+".outputs.destination}}",
                         "name": "elkeid_driver_"+vmname
                     }
+                }),
+
+                OrderedDict({
+                    "name": "Pack artifact "+vmname,
+                    "run": "zip --junk-paths -r elkeid_driver_"+vmname+".zip ${{steps.extract-"+vmname+".outputs.destination}}"
+                }),
+
+                OrderedDict({
+                    "name": "Upload Release Asset "+vmname,
+                    "id": "upload-release-asset",
+                    "uses": "actions/upload-release-asset@v1",
+                    "env": {
+                        "GITHUB_TOKEN": "${{secrets.GITHUB_TOKEN}}"
+                    },
+                    "with": {
+                        "upload_url": "${{steps.create_release.outputs.upload_url}}",
+                        "asset_path": "./elkeid_driver_"+vmname + ".zip",
+                        "asset_name": "elkeid_driver_"+vmname + ".zip",
+                        "asset_content_type": "application/zip"
+                    },
                 })
             ]
 
