@@ -5,7 +5,7 @@ from collections import OrderedDict
 
 all_dockers = os.listdir("dockerfiles")
 
-black_list = ["rhel7_elrepo", "rhel8_elrepo", "rhel6"]
+black_list = ["rhel7_elrepo", "rhel8_elrepo"]
 
 all_vms = []
 
@@ -109,12 +109,12 @@ create_release_job = OrderedDict(
             OrderedDict({
                 "uses": "actions/download-artifact@v3",
                 "with": {
-                    "path": "/all_elkeid_drivers"
+                    "path": "~/all_elkeid_drivers"
                 }
             }),
             OrderedDict({
                 "name": "Pack artifact ",
-                "run": "zip --junk-paths -r elkeid_driver.zip /all_elkeid_drivers"
+                "run": "zip --junk-paths -r elkeid_driver.zip ~/all_elkeid_drivers"
             }),
 
             OrderedDict({

@@ -20,7 +20,8 @@ wget -q -c -r -np -nd -nH -A 'kernel-devel*x86_64.rpm' 'https://mirrors.nju.edu.
 wget -q -c -r -np -nd -nH -A 'kernel-devel*x86_64.rpm' 'https://mirrors.nju.edu.cn/centos-vault/6.3/updates/x86_64/Packages/'; \
 wget -q -c -r -np -nd -nH -A 'kernel-devel*x86_64.rpm' 'https://mirrors.nju.edu.cn/centos-vault/6.2/updates/x86_64/Packages/'; \
 wget -q -c -r -np -nd -nH -A 'kernel-devel*x86_64.rpm' 'https://mirrors.nju.edu.cn/centos-vault/6.1/updates/x86_64/Packages/'; \
-wget -q -c -r -np -nd -nH -A 'kernel-devel*x86_64.rpm' 'https://mirrors.nju.edu.cn/centos-vault/6.0/updates/x86_64/Packages/';
+wget -q -c -r -np -nd -nH -A 'kernel-devel*x86_64.rpm' 'https://mirrors.nju.edu.cn/centos-vault/6.0/updates/x86_64/Packages/'
+
 RUN rpm -ivh /tmp/*.rpm || true
 
 

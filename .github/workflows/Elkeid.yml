@@ -277,6 +277,36 @@ jobs:
       with:
         name: elkeid_driver_debian9
         path: ${{steps.extract-debian9.outputs.destination}}
+  build_rhel6:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: Login to Docker Hub
+      uses: docker/login-action@v1
+      with:
+        password: ${{secrets.DOCKERHUB_TOKEN}}
+        username: ${{secrets.DOCKERHUB_USERNAME}}
+    - name: Set up Docker Buildx rhel6
+      uses: docker/setup-buildx-action@v1
+    - name: Build rhel6
+      uses: docker/build-push-action@v2
+      with:
+        file: dockerfiles/Dockerfile.rhel6
+        push: true
+        tags: kulukami/elkeid_driver_rhel6:latest
+    - name: Extract rhel6
+      id: extract-rhel6
+      uses: shrink/actions-docker-extract@v1
+      with:
+        image: kulukami/elkeid_driver_rhel6:latest
+        path: /ko_output/.
+    - name: Upload rhel6
+      uses: actions/upload-artifact@v3
+      with:
+        name: elkeid_driver_rhel6
+        path: ${{steps.extract-rhel6.outputs.destination}}
   build_rhel7:
     runs-on: ubuntu-latest
     steps:
@@ -893,9 +923,9 @@ jobs:
         tag_name: ${{github.ref}}
     - uses: actions/download-artifact@v3
       with:
-        path: /all_elkeid_drivers
+        path: ~/all_elkeid_drivers
     - name: Pack artifact 
-      run: zip --junk-paths -r elkeid_driver.zip /all_elkeid_drivers
+      run: zip --junk-paths -r elkeid_driver.zip ~/all_elkeid_drivers
     - name: Upload Release Asset 
       id: upload-release-asset
       uses: actions/upload-release-asset@v1
@@ -936,3 +966,4 @@ jobs:
     - build_rhel7
     - build_ubuntu1604_k410
     - build_rhel8
+    - build_rhel6
