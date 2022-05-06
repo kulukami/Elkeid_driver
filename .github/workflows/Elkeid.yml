@@ -9,6 +9,7 @@ on:
 jobs:
   build_aliyun_linux2:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - uses: actions/checkout@v2
       with:
@@ -19,7 +20,6 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
-      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -62,6 +62,7 @@ jobs:
         upload_url: ${{steps.create_release.outputs.upload_url}}
   build_aliyun_linux3:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - uses: actions/checkout@v2
       with:
@@ -72,7 +73,6 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
-      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -115,6 +115,7 @@ jobs:
         upload_url: ${{steps.create_release.outputs.upload_url}}
   build_amazonlinux:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - uses: actions/checkout@v2
       with:
@@ -125,7 +126,6 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
-      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -168,6 +168,7 @@ jobs:
         upload_url: ${{steps.create_release.outputs.upload_url}}
   build_amazonlinux510:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - uses: actions/checkout@v2
       with:
@@ -178,7 +179,6 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
-      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -221,6 +221,7 @@ jobs:
         upload_url: ${{steps.create_release.outputs.upload_url}}
   build_amazonlinux54:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - uses: actions/checkout@v2
       with:
@@ -231,7 +232,6 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
-      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -274,6 +274,7 @@ jobs:
         upload_url: ${{steps.create_release.outputs.upload_url}}
   build_debian10:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - uses: actions/checkout@v2
       with:
@@ -284,7 +285,6 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
-      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -327,6 +327,7 @@ jobs:
         upload_url: ${{steps.create_release.outputs.upload_url}}
   build_debian11:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - uses: actions/checkout@v2
       with:
@@ -337,7 +338,6 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
-      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -380,6 +380,7 @@ jobs:
         upload_url: ${{steps.create_release.outputs.upload_url}}
   build_debian8:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - uses: actions/checkout@v2
       with:
@@ -390,7 +391,6 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
-      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -433,6 +433,7 @@ jobs:
         upload_url: ${{steps.create_release.outputs.upload_url}}
   build_debian9:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - uses: actions/checkout@v2
       with:
@@ -443,7 +444,6 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
-      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -486,6 +486,7 @@ jobs:
         upload_url: ${{steps.create_release.outputs.upload_url}}
   build_rhel6:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - uses: actions/checkout@v2
       with:
@@ -496,7 +497,6 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
-      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -539,6 +539,7 @@ jobs:
         upload_url: ${{steps.create_release.outputs.upload_url}}
   build_rhel7:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - uses: actions/checkout@v2
       with:
@@ -549,7 +550,6 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
-      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -592,6 +592,7 @@ jobs:
         upload_url: ${{steps.create_release.outputs.upload_url}}
   build_rhel8:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - uses: actions/checkout@v2
       with:
@@ -602,7 +603,6 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
-      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -645,6 +645,7 @@ jobs:
         upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu1204:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - uses: actions/checkout@v2
       with:
@@ -655,7 +656,6 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
-      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -698,6 +698,7 @@ jobs:
         upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu1404_k3:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - uses: actions/checkout@v2
       with:
@@ -708,7 +709,6 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
-      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -751,6 +751,7 @@ jobs:
         upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu1404_k4:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - uses: actions/checkout@v2
       with:
@@ -761,7 +762,6 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
-      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -804,6 +804,7 @@ jobs:
         upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu1604_auzre:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - uses: actions/checkout@v2
       with:
@@ -814,7 +815,6 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
-      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -857,6 +857,7 @@ jobs:
         upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu1604_aws:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - uses: actions/checkout@v2
       with:
@@ -867,7 +868,6 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
-      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -910,6 +910,7 @@ jobs:
         upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu1604_k410:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - uses: actions/checkout@v2
       with:
@@ -920,7 +921,6 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
-      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -963,6 +963,7 @@ jobs:
         upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu1604_k413:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - uses: actions/checkout@v2
       with:
@@ -973,7 +974,6 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
-      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -1016,6 +1016,7 @@ jobs:
         upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu1604_k44:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - uses: actions/checkout@v2
       with:
@@ -1026,7 +1027,6 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
-      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -1069,6 +1069,7 @@ jobs:
         upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu1604_k48:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - uses: actions/checkout@v2
       with:
@@ -1079,7 +1080,6 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
-      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -1122,6 +1122,7 @@ jobs:
         upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu1804:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - uses: actions/checkout@v2
       with:
@@ -1132,7 +1133,6 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
-      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -1175,6 +1175,7 @@ jobs:
         upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu1804_aws:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - uses: actions/checkout@v2
       with:
@@ -1185,7 +1186,6 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
-      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -1228,6 +1228,7 @@ jobs:
         upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu1804_azure:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - uses: actions/checkout@v2
       with:
@@ -1238,7 +1239,6 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
-      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -1281,6 +1281,7 @@ jobs:
         upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu2004:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - uses: actions/checkout@v2
       with:
@@ -1291,7 +1292,6 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
-      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -1334,6 +1334,7 @@ jobs:
         upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu2004_aws:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - uses: actions/checkout@v2
       with:
@@ -1344,7 +1345,6 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
-      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -1387,6 +1387,7 @@ jobs:
         upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu2004_azure:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - uses: actions/checkout@v2
       with:
@@ -1397,7 +1398,6 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
-      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:
@@ -1440,6 +1440,7 @@ jobs:
         upload_url: ${{steps.create_release.outputs.upload_url}}
   build_ubuntu2204:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
     - uses: actions/checkout@v2
       with:
@@ -1450,7 +1451,6 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
         username: ${{secrets.DOCKERHUB_USERNAME}}
     - name: Create Release
-      permissions: write-all
       id: create_release
       uses: actions/create-release@v1
       env:

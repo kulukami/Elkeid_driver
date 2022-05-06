@@ -16,6 +16,7 @@ def gen_job(vmname):
     some_data = OrderedDict(
         {
             "runs-on": "ubuntu-latest",
+            "permissions": "write-all",
             "steps": [
                 OrderedDict({
                     "uses": "actions/checkout@v2",
@@ -31,10 +32,9 @@ def gen_job(vmname):
                         "password": "${{secrets.DOCKERHUB_TOKEN}}"
                     }
                 }),
-
                 OrderedDict({
                     "name": "Create Release",
-                    "permissions": "write-all",
+
                     "id": "create_release",
                     "uses": "actions/create-release@v1",
                     "env": {
