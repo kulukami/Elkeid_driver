@@ -114,7 +114,7 @@ create_release_job = OrderedDict(
             }),
             OrderedDict({
                 "name": "Pack artifact ",
-                "run": "zip --junk-paths -r elkeid_driver.zip ~/all_elkeid_drivers"
+                "run": "zip -r elkeid_driver.zip ~/all_elkeid_drivers"
             }),
 
             OrderedDict({
