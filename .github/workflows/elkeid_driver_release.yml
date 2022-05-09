@@ -2,7 +2,7 @@ name: Elkeid_driver
 on:
   push:
     tags:
-    - *
+    - v*
 jobs:
   build_aliyun_linux2:
     runs-on: ubuntu-latest

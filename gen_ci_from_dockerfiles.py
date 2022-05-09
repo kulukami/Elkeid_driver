@@ -92,7 +92,7 @@ yaml_cfg_release = OrderedDict(
         "on": {
             "push": {
                 "tags": [
-                    "'*'"
+                    "'v*'"
                 ]
             },
         }
