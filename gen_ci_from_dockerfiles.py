@@ -72,17 +72,29 @@ def gen_job(vmname):
 for each_dockers in all_dockers:
     all_vms.append(each_dockers.replace("Dockerfile.", ""))
 
-yaml_cfg = OrderedDict(
+yaml_cfg_build = OrderedDict(
     {
         "name": "Elkeid_driver",
         "on": {
             "push": {
                 "branches": [
                     "main",
-                    "'releases/**'"
                 ]
             },
             "schedule": ["cron : '0 3 * * *'"]
+        }
+    }
+)
+
+yaml_cfg_release = OrderedDict(
+    {
+        "name": "Elkeid_driver",
+        "on": {
+            "push": {
+                "tags": [
+                    "'*'"
+                ]
+            },
         }
     }
 )
@@ -141,19 +153,23 @@ for each in all_vms:
         total_jobs_list.append("build_"+each)
 create_release_job.update({"needs": total_jobs_list})
 
-total_jobs = OrderedDict({})
+total_jobs_build = OrderedDict({})
+total_jobs_release = OrderedDict({})
+
 
 all_vms.sort()
 
 for each in all_vms:
     if each not in black_list:
         tmp_job = gen_job(each)
-        total_jobs.update({"build_"+each: tmp_job})
+        total_jobs_build.update({"build_"+each: tmp_job})
+        total_jobs_release.update({"build_"+each: tmp_job})
 
-total_jobs.update({"release_all": create_release_job})
+total_jobs_release.update({"release_all": create_release_job})
 
 
-yaml_cfg.update({"jobs": total_jobs})
+yaml_cfg_build.update({"jobs": total_jobs_build})
+yaml_cfg_release.update({"jobs": total_jobs_release})
 
 
 def represent_dictionary_order(self, dict_data):
@@ -165,8 +181,14 @@ def setup_yaml():
 
 
 setup_yaml()
-config_data = yaml.dump(yaml_cfg, default_flow_style=False)
-config_data = config_data.replace("'", "")
 
-with open(".github/workflows/Elkeid.yml", "w") as f:
+
+with open(".github/workflows/elkeid_driver_build.yml", "w") as f:
+    config_data = yaml.dump(yaml_cfg_build, default_flow_style=False)
+    config_data = config_data.replace("'", "")
+    f.write(config_data)
+
+with open(".github/workflows/elkeid_driver_release.yml", "w") as f:
+    config_data = yaml.dump(yaml_cfg_release, default_flow_style=False)
+    config_data = config_data.replace("'", "")
     f.write(config_data)

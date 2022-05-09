@@ -1,11 +1,8 @@
 name: Elkeid_driver
 on:
   push:
-    branches:
-    - main
-    - releases/**
-  schedule:
-  - cron : 0 3 * * *
+    tags:
+    - *
 jobs:
   build_aliyun_linux2:
     runs-on: ubuntu-latest
